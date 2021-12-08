@@ -39,7 +39,7 @@ raster_info <- function(l) {
       dfinfo$ncell[cont] = ncell(r)
       dfinfo$xres[cont] = xres(r)
       dfinfo$yres[cont] = yres(r)
-      dfinfo$datum[cont] = crs(r, describe=TRUE)[1]
+      dfinfo$datum[cont] = crs(r, describe = TRUE)[1]
       ll = data.frame(crs(r, describe = TRUE)[2]) |>
         dplyr::pull(EPSG) |> as.numeric()
       dfinfo$epsg[cont] = ll

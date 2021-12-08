@@ -3,7 +3,7 @@
 ## A função remove os níveis dos fatores e adiciona
 ## a variável original que produziu os níveis.
 ## dftreino = dataset usado no treino do rfe
-## varsel = vetor com as variaveis selecionadas pelo modelo
+## varsel = vetor com as variáveis selecionadas pelo modelo
 ##
 #dftreino = treino; varsel = var_sel
 #
@@ -351,27 +351,3 @@ newSumm_regre <- function(data, lev = NULL, model = NULL) {
 ## Saída um raster múltiplo (SpatRaster) do pacote terra
 ##
 
-raster_dummy <- function(r) {
-  if (class(r) != 'SpatRaster') {
-    r = rast(r)
-  }
-
-  rbin <- rast()
-  ext(rbin) = terra::ext(r)
-  terra::res(rbin) = terra::res(r)
-  rnames <- vector()
-  nr = nrow(unique(r))
-  u <- unique(r)
-  u = u[ ,1]
-  u = as.numeric(u)
-  for (j in 1:nr) {
-    b = r
-    b[] = ifelse(b[] == u[j], 1, 0)
-    plot(b)
-    rbin = terra::`add<-`(rbin, b)
-    rnames =  append(rnames, paste(names(r),
-                                   paste("level", u[j], sep = "."), sep = "_") )
-  }
-  names(rbin) <- rnames
-  return(rbin)
-}

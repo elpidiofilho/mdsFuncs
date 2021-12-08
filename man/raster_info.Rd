@@ -10,7 +10,7 @@ raster_info(arquivos)
 \item{l}{vector of rater filenames inclunding path}
 }
 \value{
-dataframe with rasters characteristics
+dataframe with rasters characteristics.
 }
 \description{
 Create dataframe with characteriscts of a list of raster
