@@ -1,5 +1,5 @@
 #' Distance grid
-#'
+#' @description
 #' @param px numeric vector of x coordinates
 #' @param py numeric vector of y coordinates
 #' @param nx numeric number or particions in x direction

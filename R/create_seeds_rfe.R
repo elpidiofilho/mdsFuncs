@@ -1,5 +1,5 @@
 #' Create seeds to RFE function
-#'
+#' @description
 #' @param repeats numeric number of repeats
 #' @param number numeric number of folds
 #' @param subsets numeric vector of subsets
