@@ -1,6 +1,7 @@
 
-#' Extract vector of raster contour and
-#' create a polygon
+#' Extract raster contourn
+#'
+#' @description Extract vector of raster contour and create a polygon
 #'
 #' @param rst  raster in SpatRaster format
 #'

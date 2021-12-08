@@ -1,7 +1,7 @@
 Package: mdsFuncs
 Type: Package
-Title: Auxiliar functions do MDS
-Version: 0.1.1
+Title: Auxiliar functions to modelling with machine learning
+Version: 0.1.2
 Author: Elpidio Filho <elpidio@ufv.br>
         Cassio Moquedace <cassio.moquedace@ufv.br>
         Gustavo Veloso <gustavo.v.veloso@gmail.com>
