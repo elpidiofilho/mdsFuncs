@@ -33,3 +33,6 @@ raster_dummy <- function(r) {
   names(rbin) <- rnames
   return(rbin)
 }
+
+
+
