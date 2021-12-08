@@ -2,8 +2,7 @@
 % Please edit documentation in R/extract_raster_contourn.R
 \name{extract_raster_contour}
 \alias{extract_raster_contour}
-\title{Extract vector of raster contour and
-create a polygon}
+\title{Extract raster contourn}
 \usage{
 extract_raster_contour(rst)
 }
@@ -11,11 +10,10 @@ extract_raster_contour(rst)
 \item{rst}{raster in SpatRaster format}
 }
 \value{
-a polygon with contourn of raster
+a polygon with contour of raster
 }
 \description{
-Extract vector of raster contour and
-create a polygon
+Extract vector of raster contour and create a polygon
 }
 \examples{
 extract_raster_contourn(r)

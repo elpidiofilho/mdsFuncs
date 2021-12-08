@@ -5,7 +5,7 @@
 #'
 #' @param rst  raster in SpatRaster format
 #'
-#' @return a polygon with contourn of raster
+#' @return a polygon with contour of raster
 #' @export
 #' @importFrom terra classify as.polygons
 #' @examples

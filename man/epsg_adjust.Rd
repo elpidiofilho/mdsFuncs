@@ -7,7 +7,7 @@
 epsg_adjust(epsg, l)
 }
 \arguments{
-\item{l}{vector of character with rasters filenames with path of}
+\item{l}{vector of character with rasters filenames with path}
 }
 \value{
 

@@ -167,34 +167,8 @@ gera_seeds_train <- function(tuneLength, modelo = 'rf',
   return(seeds)
 }
 
-## cria rasters de latitude e longitude (opcional)
+##
 
-cria_lat_long_raster <- function(dir_raster = dir_raster,
-                                 extensao = "*.tif",
-                                 dirSaida = dir_raster) {
-
-  l = list.files(dir_raster, glob2rx(extensao), full.names = TRUE)
-  if (length(l) == 0)
-  {stop(paste('nao existe arquivos com a extensao', extensao,
-              'na pasta', dir_raster))}
-  rr = terra::rast(l)
-  r1 <- rr[[1]]
-  contorno = extract_contour(r1) ######
-  plot(contorno)
-  lat <- long <- r1
-  xy <- terra::crds(long, na.rm = FALSE) ### obtém as coordenadas de cada célula
-  long[] <- xy[, 1]
-  lat[] <- xy[, 2]
-  long = long |> terra::crop(contorno) |> terra::mask(contorno) ###
-  lat = lat |> terra::crop(contorno) |> terra::mask(contorno) ###
-  names(lat) = 'lat'
-  names(long) = 'long'
-
-  terra::writeRaster(long, here(dir_raster,'long.asc'), overwrite = TRUE)
-  terra::writeRaster(lat,  here(dir_raster,'lat.asc'), overwrite = TRUE)
-  plot(lat)
-  plot(long)
-}
 
 
 

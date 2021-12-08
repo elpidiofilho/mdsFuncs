@@ -4,7 +4,7 @@
 #' contendo path + nome dos arquivos raster
 #'
 #' @param epsg
-#' @param l vector of character with rasters filenames with path of
+#' @param l vector of character with rasters filenames with path
 #'
 #' @return
 #' @export
