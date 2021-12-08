@@ -18,12 +18,12 @@ epsg_adjust <- function(epsg, l) {
   ne = l[!nf]
   if (length(ne > 0)) {
     print(ne)
-    stop('arquivos não existentes')
+    stop("arquivos não existentes")
   }
 
-  dd = tempdir()
+  dd <- tempdir()
   for (i in 1:length(l)) {
-    r = terra::rast(l[i])
+    r <- terra::rast(l[i])
     terra::crs(r) <- epsg
     fn = paste0(dd,'\\',basename(l[i]))
     terra::writeRaster(r, fn, overwrite = TRUE)

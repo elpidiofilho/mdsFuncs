@@ -11,28 +11,28 @@
 #' @export
 #'
 #' @examples
-create_train_seeds <- function(tuneLength, model = 'rf',
+create_train_seeds <- function(tuneLength, model = "rf",
                              repeats = 1, number = 10) {
-  models = tryCatch(
-    {caret::modelLookup(modelo)},
-    error = function(e){
-      st = paste('modelo', modelo, 'não existe')
+  models <- tryCatch(
+    {caret::modelLookup(model)},
+    error = function(e) {
+      st <- paste("modelo", model, "não existe")
       stop(st)
     })
   if (tuneLength == 0) {
-    stop('tuneLength deve ser maior que zero')
+    stop("tuneLength deve ser maior que zero")
   }
   if (repeats == 0) {
-    stop('valor repeats deve ser maior que zero')
+    stop("valor repeats deve ser maior que zero")
   }
   if (number == 0) {
-    stop('valor number deve ser maior que zero')
+    stop("valor number deve ser maior que zero")
   }
-  nr = tuneLength ^ nrow(models)
-  nl = repeats * number
+  nr <- tuneLength ^ nrow(models)
+  nl <- repeats * number
 
-  seeds = vector(mode = "list", length = nl + 1)
-  for (i in 1:nl) seeds[[i]] = sample.int(10000,  nr)
-  seeds[[nl + 1]] = sample.int(10000, 1)
+  seeds <- vector(mode = "list", length = nl + 1)
+  for (i in 1:nl) seeds[[i]] <- sample.int(10000,  nr)
+  seeds[[nl + 1]] <- sample.int(10000, 1)
   return(seeds)
 }
