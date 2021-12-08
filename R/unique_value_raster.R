@@ -5,7 +5,7 @@
 #'
 #' @return named character vector with layer names and unique values
 #' @export
-#'
+#' @importFrom terra unique
 #' @examples
 #' unique_value_raster(r)
 

@@ -3,9 +3,11 @@
 #'
 #' @param l vector of rater filenames inclunding path
 #'
-#' @return dataframe with rasters characteristics
+#' @return dataframe with rasters characteristics.
 #' @export
-#'
+#' @importFrom terra rast nlyr
+#' @importFrom dplyr summarise_at pull rename_all vars n_distinct select one_of filter
+#' @importFrom tibble rownames_to_column
 #' @examples
 #'
 raster_info <- function(l) {

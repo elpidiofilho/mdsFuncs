@@ -6,7 +6,7 @@
 #'
 #' @return a polygon with contourn of raster
 #' @export
-#'
+#' @importFrom terra classify as.polygons
 #' @examples
 #' extract_raster_contourn(r)
 #'
