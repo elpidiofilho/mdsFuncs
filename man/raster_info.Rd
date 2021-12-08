@@ -4,7 +4,7 @@
 \alias{raster_info}
 \title{Create dataframe with characteriscts of a list of raster}
 \usage{
-raster_info(arquivos)
+raster_info(l)
 }
 \arguments{
 \item{l}{vector of rater filenames inclunding path}

@@ -1,4 +1,5 @@
 #' Converte Raster categórico para Raster Dummy
+#' @description
 #' converte arquivo raster contendo n classes
 #' em n arquivos contendo uma classe
 #' tipo presença (1) e ausência (0)

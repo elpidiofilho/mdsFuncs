@@ -1,9 +1,11 @@
 Package: mdsFuncs
 Type: Package
-Title: What the Package Does (Title Case)
-Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
+Title: Auxiliar functions do MDS
+Version: 0.1.1
+Author: Elpidio Filho <elpidio@ufv.br>
+        Cassio Moquedace <cassio.moquedace@ufv.br>
+        Gustavo Veloso <gustavo.v.veloso@gmail.com>
+Maintainer: Elpidio Filho <elpidio@ufv.br>
 Description: More about what it does (maybe more than one line)
     Use four spaces when indenting paragraphs within the Description.
 License: MIT + file LICENSE

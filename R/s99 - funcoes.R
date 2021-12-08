@@ -98,81 +98,6 @@ detect_factor <- function(r, limiar = 10) {
 ##vv
 
 
-#
-#
-# Função Raster Info ------------------------------------------------------
-#
-#
-
-raster_info <- function(arquivos) {
-  library(terra)
-  l = arquivos
-  nf = file.exists(l)
-  ne = l[!nf]
-  if (length(ne > 0)) {
-    print(ne)
-    stop('arquivos não existentes')
-  }
-
-  rl = length(l)
-  nl = 0
-  cont = 1
-  dfinfo = data.frame(layer = character (rl),
-                      nrow = integer(rl), ncol = integer(rl), nlyr = integer(rl),
-                      ncell = integer(rl), xres = numeric(rl), yres = numeric(rl),
-                      datum = character(rl), epsg = numeric(rl))
-  for (i in 1:rl) {
-    r = terra::rast(l[i])
-    nsrc(r)
-    nl = terra::nlyr(r)
-    if (nl > 1) {
-
-    } else {
-      dfinfo$layer[cont] = names(r)
-      dfinfo$nrow[cont] = nrow(r)
-      dfinfo$ncol[cont] = ncol(r)
-      dfinfo$nlyr[cont] = nlyr(r)
-      dfinfo$ncell[cont] = ncell(r)
-      dfinfo$xres[cont] = xres(r)
-      dfinfo$yres[cont] = yres(r)
-      dfinfo$datum[cont] = crs(r, describe=TRUE)[1]
-      ll = data.frame(crs(r, describe = TRUE)[2]) |>
-        dplyr::pull(EPSG) |> as.numeric()
-      dfinfo$epsg[cont] = ll
-      cont = cont + 1
-    }
-  }
-
-  lt = table(dfinfo$nrow, exclude = NULL)
-  length(lt)
-  lt = table(dfinfo$epsg, exclude = NULL)
-  length(lt)
-
-  dfunique = dfinfo |>
-    dplyr::summarise_at(dplyr::vars(-layer), dplyr::n_distinct)
-
-  vprob = dfunique |> t() |> data.frame() |>
-    tibble::rownames_to_column() |>
-    dplyr::rename_all(~c('var','freq')) |>
-    dplyr::filter(freq > 1) |>
-    dplyr::pull(var)
-
-  if (length(vprob) > 0) {
-    print('Problemas. Parametros dos rasters não são iguais.')
-    dfprob = dfinfo |>
-      dplyr::select(one_of(vprob))
-    dfprob = data.frame(layer = dfinfo$layer, dfprob)
-    print(dfprob)
-    print('Problemas. Parametros dos rasters não são iguais.')
-    print(paste('Problema detectado em:', paste(names(dfprob)[-1], collapse = ', ')))
-  } else {
-    print('Ok. Parametros dos rasters são iguais.')
-    print(dfinfo)
-    print('Ok. Parametros dos rasters são iguais.')
-  }
-  return(dfinfo)
-}
-
 
 #diag = raster_info(l)
 
@@ -185,35 +110,6 @@ raster_info <- function(arquivos) {
 # contendo path + nome dos arquivos raster
 #
 #
-
-ajusta_epsg <- function(epsg, arquivos) {
-  if (stringr::str_detect(epsg,'epsg:') != TRUE) {
-    stop('epsg dever ser escrito no formato epsg:xxxxx. Exemplo: "epsg:32723"')
-  }
-  l = arquivos
-  nf = file.exists(l)
-  ne = l[!nf]
-  if (length(ne > 0)) {
-    print(ne)
-    stop('arquivos não existentes')
-  }
-
-  dd = tempdir()
-  for (i in 1:length(l)) {
-    r = terra::rast(l[i])
-    terra::crs(r) <- epsg
-    fn = paste0(dd,'\\',basename(l[i]))
-    terra::writeRaster(r, fn, overwrite = TRUE)
-  }
-  result = file.copy(from = l, to = "./covar", overwrite = TRUE)
-  if (sum(result) != length(result)) {
-    stop('problema na cópia dos arquivos da pasta temporaria')
-  } else {
-    file.remove(l)
-    print('operacao bem sucedida' )
-    return('Ok')
-  }
-}
 
 #ajusta_epsg(epsg = "epsg:32723", l)
 
@@ -341,13 +237,4 @@ newSumm_regre <- function(data, lev = NULL, model = NULL) {
 }
 
 
-# raster_dummy ------------------------------------------------------------
-##
-## Converte Raster categórico para Raster Dummy
-##
-## converte arquivo raster contendo n classes
-## em n arquivos contendo uma classe
-## tipo presença (1) e ausência (0)
-## Saída um raster múltiplo (SpatRaster) do pacote terra
-##
 
