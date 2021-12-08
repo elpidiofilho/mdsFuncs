@@ -16,7 +16,7 @@ create_lat_long_rasters(
 
 \item{todisk}{boolean gravar ou não os arquivos no disco}
 
-\item{extensao}{extensão dos arquivos raster (.tif, .asc...)}
+\item{extensao}{extensão dos arquivos raster .tif, .asc...}
 
 \item{dirSaida}{pasta onde será gravado os arquivos de saída}
 }
