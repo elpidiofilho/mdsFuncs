@@ -114,58 +114,7 @@ detect_factor <- function(r, limiar = 10) {
 #ajusta_epsg(epsg = "epsg:32723", l)
 
 
-# Gera seeds para o RFE ---------------------------------------------------
 
-gera_seeds_rfe <- function(repeats = 1, number = 5, subsets = (2:10)) {
-  if (length(subsets) == 0) {
-    stop('subsets deve ter pelo menos um valor')
-  }
-  if (repeats == 0) {
-    stop('valor repeats deve ser maior que zero')
-  }
-  if (number == 0) {
-    stop('valor number deve ser maior que zero')
-  }
-  sizes = subsets
-  nl = repeats * number
-  seeds = vector(mode = "list", length = nl )
-  set.seed(313, kind = "Mersenne-Twister", normal.kind = "Inversion")
-  for (i in 1:nl) seeds[[i]] = sample.int(n = 10000, size = length(sizes) + 1)
-  seeds[[nl + 1]] = sample.int(10000, 1)
-  return(seeds)
-}
-
-#
-#
-# Gera seeds para train ---------------------------------------------------
-#
-#
-
-gera_seeds_train <- function(tuneLength, modelo = 'rf',
-                             repeats = 1, number = 10) {
-  models = tryCatch(
-    {caret::modelLookup(modelo)},
-    error = function(e){
-      st = paste('modelo', modelo, 'não existe')
-      stop(st)
-    })
-  if (tuneLength == 0) {
-    stop('tuneLength deve ser maior que zero')
-  }
-  if (repeats == 0) {
-    stop('valor repeats deve ser maior que zero')
-  }
-  if (number == 0) {
-    stop('valor number deve ser maior que zero')
-  }
-  nr = tuneLength ^ nrow(models)
-  nl = repeats * number
-
-  seeds = vector(mode = "list", length = nl + 1)
-  for (i in 1:nl) seeds[[i]] = sample.int(10000,  nr)
-  seeds[[nl + 1]] = sample.int(10000, 1)
-  return(seeds)
-}
 
 ##
 

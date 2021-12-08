@@ -15,5 +15,5 @@ cut_raster(r, poly)
 raster
 }
 \description{
-cut raster
+cut raster by polygon
 }

@@ -1,5 +1,5 @@
 #' cut raster
-#'
+#' @description cut raster by polygon
 #' @param r  raster
 #' @param poly poligono
 #'

@@ -5,20 +5,23 @@
 \title{Create lat long rasters}
 \usage{
 create_lat_long_rasters(
-  dir_raster = dir_raster,
-  extensao = "*.tif",
-  dirSaida = dir_raster
+  rr,
+  todisk = TRUE,
+  extensao = ".tif",
+  dirSaida = getwd()
 )
 }
 \arguments{
-\item{dir_raster}{pasta onde estão os rasters}
+\item{rr}{raster de referencia}
 
-\item{extensao}{extensão dos arquivos raster}
+\item{todisk}{boolean gravar ou não os arquivos no disco}
+
+\item{extensao}{extensão dos arquivos raster (.tif, .asc...)}
 
 \item{dirSaida}{pasta onde será gravado os arquivos de saída}
 }
 \value{
-
+lat e long em uma lista
 }
 \description{
 cria rasters de latitude e longitude
