@@ -16,8 +16,8 @@ Authors@R:
              family = "Veloso",
              role = "aut"))
 Maintainer: Elpidio Filho <elpidio@ufv.br>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Description: Auxiliary functions to process data to machine learning
+    in special to digital soil mapping.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
