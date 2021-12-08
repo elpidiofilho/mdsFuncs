@@ -10,9 +10,9 @@
 #' unique_value_raster(r)
 
 unique_value_raster <- function(r) {
-  u <- terra::unique(r, incomparables = TRUE )
+  u <- terra::unique(r, incomparables = TRUE)
   x <- lapply(u, unique)
-  ur = sapply(x, length)
-  names(ur) = names(r)
+  ur <- sapply(x, length)
+  names(ur) <- names(r)
   return(ur)
 }

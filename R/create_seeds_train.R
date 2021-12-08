@@ -13,8 +13,8 @@
 #' @examples
 create_train_seeds <- function(tuneLength, model = "rf",
                              repeats = 1, number = 10) {
-  models <- tryCatch(
-    {caret::modelLookup(model)},
+  models <- tryCatch({
+    caret::modelLookup(model)},
     error = function(e) {
       st <- paste("modelo", model, "não existe")
       stop(st)
