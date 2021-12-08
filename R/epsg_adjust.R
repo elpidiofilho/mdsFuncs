@@ -8,7 +8,8 @@
 #'
 #' @return
 #' @export
-#'
+#' @importFrom stringr str_detect
+#' @importFrom terra rast crs writeRaster
 #' @examples
 epsg_adjust <- function(epsg, l) {
   if (stringr::str_detect(epsg, "epsg:") != TRUE) {
