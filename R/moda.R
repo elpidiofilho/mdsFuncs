@@ -2,7 +2,7 @@
 #'
 #' @param r SpatRaster
 #' @param ncores integer number of cores for multiprocessing
-#'
+#' @author <elpidio@ufv.br>
 #' @return SpatRaster
 #' @export
 #' @importFrom terra app

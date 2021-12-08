@@ -8,7 +8,7 @@ create_lat_long_rasters(
   rr,
   todisk = TRUE,
   extensao = ".tif",
-  dirSaida = getwd()
+  dir_saida = getwd()
 )
 }
 \arguments{
