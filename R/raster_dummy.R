@@ -9,7 +9,7 @@
 #'
 #' @return SpatRaster with n layers one for each factor level
 #' @export
-#'
+#' @importFrom terra rast ext res unique `add<-`
 #' @examples
 raster_dummy <- function(r) {
   if (class(r) != "SpatRaster") {

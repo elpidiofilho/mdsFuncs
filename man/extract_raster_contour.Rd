@@ -2,12 +2,12 @@
 % Please edit documentation in R/extract_raster_contourn.R
 \name{extract_raster_contour}
 \alias{extract_raster_contour}
-\title{Extract raster contourn}
+\title{Extract raster contour}
 \usage{
-extract_raster_contour(rst)
+extract_raster_contour(r)
 }
 \arguments{
-\item{rst}{raster in SpatRaster format}
+\item{r}{raster in SpatRaster format}
 }
 \value{
 a polygon with contour of raster
