@@ -8,7 +8,7 @@
 #' @importFrom here here
 #' @return lat e long em uma lista
 #' @export
-#'
+#' @author Elpidio Filho
 #' @examples
 create_lat_long_rasters <- function(rr, todisk = TRUE,
                                  extensao = ".tif",
@@ -20,8 +20,10 @@ create_lat_long_rasters <- function(rr, todisk = TRUE,
   long[] <- xy[, 1]
   lat[] <- xy[, 2]
   contorno <- extract_raster_contour(r1)
-  long <- long |> terra::crop(contorno) |> terra::mask(contorno) ###
-  lat <- lat |> terra::crop(contorno) |> terra::mask(contorno) ###
+  long <- long |> terra::crop(contorno) |>
+    terra::mask(contorno)
+  lat <- lat |> terra::crop(contorno) |>
+    terra::mask(contorno)
   names(lat) <- "lat"
   names(long) <- "long"
   if (todisk == TRUE) {

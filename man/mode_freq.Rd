@@ -17,6 +17,9 @@ SpatRaster
 \description{
 Frequency of modal values
 }
+\examples{
+rmfreq = mode_freq(r = r1, ncores = 2)
+}
 \author{
 <elpidio@ufv.br>
 }
