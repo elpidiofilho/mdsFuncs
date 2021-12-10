@@ -1,7 +1,7 @@
 Package: mdsFuncs
 Type: Package
 Title: Auxiliar functions to modelling with machine learning
-Version: 0.1.6
+Version: 0.1.7
 Authors@R: 
     c(person(given = "Elpidio",
              family = "Fernandes Filho",
@@ -22,7 +22,7 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.2
-Imports: caret, dplyr, here, sf, stringr, terra, tibble
+Imports: caret, dplyr, here, sf, stringr, terra, tibble, hydroGOF, epiR
 Suggests: 
     knitr,
     rmarkdown

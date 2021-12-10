@@ -27,8 +27,8 @@ newSummary <- function(data, lev = NULL, model = NULL)
   sum_obs <- sum(obs)
   rmse <- hydroGOF::rmse(pred, obs, na.rm = TRUE)
   mae <- hydroGOF::mae(pred, obs, na.rm = TRUE)
-  CCC <- epiR::epi.ccc( pred,obs)
-  LCCC <- CCC$rho.c[1,1]
+  CCC <- epiR::epi.ccc(pred, obs)
+  LCCC <- CCC$rho.c[1, 1]
   rss <- sum((pred - obs) ^ 2)  ## residual sum of squares
   tss <- sum((obs - mean(obs)) ^ 2)  ## total sum of squares
   rsq <- 1 - rss/tss
