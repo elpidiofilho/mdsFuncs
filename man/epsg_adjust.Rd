@@ -2,17 +2,22 @@
 % Please edit documentation in R/epsg_adjust.R
 \name{epsg_adjust}
 \alias{epsg_adjust}
-\title{Adjust epsg}
+\title{Adjust Raster epsg}
 \usage{
-epsg_adjust(epsg, l)
+epsg_adjust(l, epsg)
 }
 \arguments{
-\item{l}{vector of character with rasters filenames with path}
+\item{l}{character filename with path of rasters files}
+
+\item{epsg}{character epsg in format: 'epsg:xxxxx'. Ex.'epsg:32723'}
 }
 \value{
 
 }
 \description{
-Adiciona informação do epsg para todos os rasters de um vetor
-contendo path + nome dos arquivos raster
+Add epsg information for all rasters of a vector
+containing path + raster filenames
+}
+\examples{
+epsg_adjust(l, 'epsg:32723')
 }

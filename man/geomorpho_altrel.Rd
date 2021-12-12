@@ -13,7 +13,7 @@ geomorpho_altrel(saga, mde, pasta, todisk = TRUE)
 
 \item{pasta}{character folder name to save files}
 
-\item{todisk}{boolean write the generated rasters to disk}
+\item{todisk}{boolean write the generated raster to disk}
 }
 \value{
 raster stack (SpatialRaster)

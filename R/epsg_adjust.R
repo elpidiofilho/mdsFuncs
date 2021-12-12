@@ -1,25 +1,25 @@
-#' Adjust epsg
+#' Adjust Raster epsg
 #'
-#' @description Adiciona informação do epsg para todos os rasters de um vetor
-#' contendo path + nome dos arquivos raster
-#'
-#' @param epsg
-#' @param l vector of character with rasters filenames with path
-#'
+#' @description Add epsg information for all rasters of a vector
+#' containing path + raster filenames
+#' @param l character filename with path of rasters files
+#' @param epsg character epsg in format: 'epsg:xxxxx'. Ex.'epsg:32723'
 #' @return
 #' @export
 #' @importFrom stringr str_detect
 #' @importFrom terra rast crs writeRaster
 #' @examples
-epsg_adjust <- function(epsg, l) {
+#' epsg_adjust(l, 'epsg:32723')
+epsg_adjust <- function(l, epsg) {
   if (stringr::str_detect(epsg, "epsg:") != TRUE) {
-    stop("epsg deve ser escrito no formato epsg:xxxxx. Exemplo: 'epsg:32723'")
+    stop("epsg must be written in the format epsg:xxxxx.
+         Example:'epsg:32723'")
   }
   nf <- file.exists(l)
   ne <- l[!nf]
   if (length(ne > 0)) {
     print(ne)
-    stop("arquivos não existentes")
+    stop("non-existing files")
   }
 
   dd <- tempdir()
@@ -32,10 +32,10 @@ epsg_adjust <- function(epsg, l) {
   }
   result <- file.copy(from = l, to = "./covar", overwrite = TRUE)
   if (sum(result) != length(result)) {
-    stop("problema na cópia dos arquivos da pasta temporaria")
+    stop("Problem copying files from temporary folder")
   } else {
     file.remove(l)
-    print("operacao bem sucedida")
+    print("successful operation")
     return("Ok")
   }
 }
