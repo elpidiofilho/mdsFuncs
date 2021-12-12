@@ -7,7 +7,7 @@
 unique_value_raster(r)
 }
 \arguments{
-\item{r}{}
+\item{r}{SpatRaster unique ou raster stack to be preocessed}
 }
 \value{
 named character vector with layer names and unique values
