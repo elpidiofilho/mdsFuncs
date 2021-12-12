@@ -2,22 +2,24 @@
 % Please edit documentation in R/geomorpho_altrel.R
 \name{geomorpho_altrel}
 \alias{geomorpho_altrel}
-\title{alturas relativas}
+\title{relative height metrics}
 \usage{
 geomorpho_altrel(saga, mde, pasta, todisk = TRUE)
 }
 \arguments{
 \item{saga}{Rsagamcd object}
 
-\item{mde}{SpatialRaster}
+\item{mde}{SpatialRaster raster}
 
-\item{pasta}{character nome da pasta para gravar os arquivos}
+\item{pasta}{character folder name to save files}
 
-\item{todisk}{boolean gravar no disco os rasters gerados}
+\item{todisk}{boolean write the generated rasters to disk}
 }
 \value{
-pilha de rasters (SpatialRaster)
+raster stack (SpatialRaster)
 }
 \description{
-calcula varias métricas de alturas relativas
+calculates various relative height metrics
+    Slope_Height, Valley_Depth, Normalized_Height,
+    Standardized_Height, Mid_Slope_Positon
 }

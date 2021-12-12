@@ -1,14 +1,18 @@
-#' alturas relativas
-#' @description calcula varias métricas de alturas relativas
+#' relative height metrics
+#' @description calculates various relative height metrics
+#'     Slope_Height, Valley_Depth, Normalized_Height,
+#'     Standardized_Height, Mid_Slope_Positon
 #' @param saga Rsagamcd object
-#' @param mde SpatialRaster
-#' @param pasta character nome da pasta para gravar os arquivos
-#' @param todisk boolean gravar no disco os rasters gerados
+#' @param mde SpatialRaster raster
+#' @param pasta character folder name to save files
+#' @param todisk boolean write the generated raster to disk
 #'
-#' @return pilha de rasters (SpatialRaster)
+#' @return raster stack (SpatialRaster)
 #' @export
 #' @importFrom Rsagacmd saga_gis
 #' @examples
+#' frel = geomorpho_altrel (saga, mde = dem, pasta = './morpho,
+#'                          todisk = TRUE)
 geomorpho_altrel  <- function(saga, mde, pasta, todisk = TRUE) {
   relheights = saga$ta_morphometry$relative_heights_and_slope_positions(dem = mde)
   nm = c('Slope_Height', "Valley_Depth", 'Normalized_Height',
