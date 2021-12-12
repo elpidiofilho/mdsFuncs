@@ -34,7 +34,7 @@ make tiles from a raster
 }
 \examples{
 tl = make_tiles(r = r1, ncol = 2, nrow = 2,
-     path = './tiles', sufix = 'tl', format = '.tif'))
+     path = './tiles', sufix = 'tl', format = '.tif')
 }
 \author{
 Cassio Moquedace e Elpidio Filho

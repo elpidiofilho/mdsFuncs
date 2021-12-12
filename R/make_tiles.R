@@ -12,7 +12,7 @@
 #' @importFrom terra rast makeTiles
 #' @examples
 #' tl = make_tiles(r = r1, ncol = 2, nrow = 2,
-#'      path = './tiles', sufix = 'tl', format = '.tif'))
+#'      path = './tiles', sufix = 'tl', format = '.tif')
 make_tiles <- function(r, ncol = 2, nrow = 2,
                        path = "./tiles/",
                        sufix = "tile_",

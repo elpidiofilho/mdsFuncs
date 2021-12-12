@@ -11,22 +11,24 @@
 #' @export
 #'
 #' @examples
+#' seed_train = create_train_seeds(tuneLength = 5, model = 'rf',
+#'                                 repeats = 3, number = 10)
 create_train_seeds <- function(tuneLength, model = "rf",
                              repeats = 1, number = 10) {
   models <- tryCatch({
     caret::modelLookup(model)},
     error = function(e) {
-      st <- paste("modelo", model, "não existe")
+      st <- paste("model", model, "does not exist")
       stop(st)
     })
   if (tuneLength == 0) {
-    stop("tuneLength deve ser maior que zero")
+    stop("tuneLength must be greater than zero")
   }
   if (repeats == 0) {
-    stop("valor repeats deve ser maior que zero")
+    stop("repeats value must be greater than zero")
   }
   if (number == 0) {
-    stop("valor number deve ser maior que zero")
+    stop("value number must be greater than zero")
   }
   nr <- tuneLength ^ nrow(models)
   nl <- repeats * number

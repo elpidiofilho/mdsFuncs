@@ -6,7 +6,6 @@
 #' @author Gustavo Veloso
 #' @return
 #' @export
-#' @importFrom hydroGOF rmse mae
 #' @importFrom epiR epi.ccc
 #' @examples
 newSummary <- function(data, lev = NULL, model = NULL)

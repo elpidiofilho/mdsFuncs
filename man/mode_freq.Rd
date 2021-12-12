@@ -4,7 +4,7 @@
 \alias{mode_freq}
 \title{Frequency of modal values}
 \usage{
-mode_freq(r, ncores = 4)
+mode_freq(r, ncores = 2)
 }
 \arguments{
 \item{r}{SpatRaster}
@@ -15,10 +15,11 @@ mode_freq(r, ncores = 4)
 SpatRaster
 }
 \description{
-Frequency of modal values
+Calculates the frequency of occurrence of the
+    modal value for each cell/pixel of a raster stack
 }
 \examples{
-rmfreq = mode_freq(r = r1, ncores = 2)
+modalfreq = mode_freq(r = r1, ncores = 2)
 }
 \author{
 <elpidio@ufv.br>

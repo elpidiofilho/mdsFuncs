@@ -1,5 +1,6 @@
 #' Frequency of modal values
-#'
+#' @description Calculates the frequency of occurrence of the
+#'     modal value for each cell/pixel of a raster stack
 #' @param r SpatRaster
 #' @param ncores integer number of cores for multiprocessing
 #' @author <elpidio@ufv.br>
@@ -7,9 +8,16 @@
 #' @export
 #' @importFrom terra app
 #' @examples
-#' rmfreq = mode_freq(r = r1, ncores = 2)
+#' modalfreq = mode_freq(r = r1, ncores = 2)
 
-mode_freq <- function(r, ncores = 4) {
+mode_freq <- function(r, ncores = 2) {
+  if (class(r) == 'RasterStack') {
+    r = rast(r)
+  } else {
+    if (class(r) != 'SpatRaster'){
+      stop('Error : file must be in RasterStack or SpatRaster format')
+    }
+  }
   Mode_count <- function(x) {
     ux <- unique(x)
     ux <- ux[!is.na(ux)]

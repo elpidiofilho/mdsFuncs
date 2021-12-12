@@ -21,3 +21,7 @@ list of seeds
 \description{
 Create caret train seeds
 }
+\examples{
+seed_train = create_train_seeds(tuneLength = 5, model = 'rf',
+                                repeats = 3, number = 10)
+}
