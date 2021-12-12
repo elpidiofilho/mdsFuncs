@@ -2,7 +2,7 @@
 % Please edit documentation in R/raster_dummy.R
 \name{raster_dummy}
 \alias{raster_dummy}
-\title{Converte Raster categórico para Raster Dummy}
+\title{Converts Categorical Raster to Dummy Raster}
 \usage{
 raster_dummy(r)
 }
@@ -13,8 +13,11 @@ raster_dummy(r)
 SpatRaster with n layers one for each factor level
 }
 \description{
-converte arquivo raster contendo n classes
-em n arquivos contendo uma classe
-tipo presença (1) e ausência (0)
-Saída um raster múltiplo (SpatRaster) do pacote terra
+Convert raster file containing n classes
+    in n files containing one class
+    type presence (1) and absence (0)
+    Output a multiple raster (SpatRaster) from the terra packet
+}
+\examples{
+#dumr = raster_dummy(r)
 }

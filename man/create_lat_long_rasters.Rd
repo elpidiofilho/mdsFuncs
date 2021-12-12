@@ -26,6 +26,9 @@ lat e long em uma lista
 \description{
 cria rasters de latitude e longitude
 }
+\examples{
+
+}
 \author{
 Elpidio Filho
 }

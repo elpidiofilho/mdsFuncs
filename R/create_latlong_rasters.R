@@ -10,6 +10,7 @@
 #' @export
 #' @author Elpidio Filho
 #' @examples
+#'
 create_lat_long_rasters <- function(rr, todisk = TRUE,
                                  extensao = ".tif",
                                  dir_saida = getwd()) {

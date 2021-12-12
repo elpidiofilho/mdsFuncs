@@ -26,6 +26,7 @@ sf object
 convert a dataframe with coordinates to a point feature
 }
 \examples{
-pt1 = df_to_point(df, x = 'X', y = 'Y', crs = 'EPSG:31984',
+df = data.frame(X = c(-42.3,-42.4,-42.5), Y = c(-20.1, -20.2, -20.3))
+pt1 = df_to_point(df, x = 'X', y = 'Y', crs = 'EPSG:4326',
                todisk = TRUE, pathname = './pontos/pontos.shp')
 }
