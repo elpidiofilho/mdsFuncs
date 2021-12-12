@@ -19,5 +19,6 @@ Add epsg information for all rasters of a vector
 containing path + raster filenames
 }
 \examples{
-epsg_adjust(l, 'epsg:32723')
+l = c("./rasters/mde.tif', './rasters/slope.tif")
+epsg_adjust(l, "epsg:32723")
 }

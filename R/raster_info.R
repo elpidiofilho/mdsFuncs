@@ -16,7 +16,7 @@ raster_info <- function(l) {
   ne <- l[!nf]
   if (length(ne > 0)) {
     print(ne)
-    stop("arquivos não existentes")
+    stop("non-existing files")
   }
 
   rl <- length(l)
@@ -64,18 +64,17 @@ raster_info <- function(l) {
     dplyr::pull(var)
 
   if (length(vprob) > 0) {
-    print("Problemas. Parametros dos rasters não são iguais.")
+    print("Problems. Raster parameters are not the same.")
     dfprob <- dfinfo |>
       dplyr::select(one_of(vprob))
     dfprob <- data.frame(layer = dfinfo$layer, dfprob)
     print(dfprob)
-    print("Problemas. Parametros dos rasters não são iguais.")
-    print(paste("Problema detectado em:", paste(names(dfprob)[-1],
+    print("Problems. Raster parameters are not the same..")
+    print(paste("Problem detected in:", paste(names(dfprob)[-1],
                                                 collapse = ", ")))
   } else {
-    print("Ok. Parametros dos rasters são iguais.")
     print(dfinfo)
-    print("Ok. Parametros dos rasters são iguais.")
+    print("Okay. Raster parameters are the same.")
   }
   return(dfinfo)
 }
