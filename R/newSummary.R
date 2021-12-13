@@ -25,6 +25,7 @@ newSummary <- function(data, lev = NULL, model = NULL)
 
   sum_pred_ob <- sum(pred - obs)
   sum_obs <- sum(obs)
+  mbe = mean(obs - pred) # mean bias error
   rmse <- sqrt(mean((obs - pred) ^ 2))
   # Root Relative Squared Error RRSE
   rrse <- sqrt(sum((obs - pred) ^ 2) / sum((obs - mean(obs)) ^ 2))
@@ -46,9 +47,9 @@ newSummary <- function(data, lev = NULL, model = NULL)
   #mae_null <- hydroGOF::mae(obs, data_null, na.rm = TRUE)
   RmseRelatNull <- 1 - (rmse / rmse_null)
   MaeRelatNull <- 1 - (mae / mae_null)
-  out <- c(nse, rsq, rmse, rrse,  mae, rae, LCCC, pbias, RmseRelatNull, MaeRelatNull)
-  names(out) <- c('NSE', 'Rsquared', 'RMSE', 'RRSE', 'MAE', 'RAE', "LCCC",
-                  "PBIAS","RmseRelatNull" ,"MaeRelatNull")
+  out <- c(nse, rsq, mbe, rmse, rrse,  mae, rae, LCCC, pbias, RmseRelatNull, MaeRelatNull)
+  names(out) <- c("NSE", "Rsquared", "MBE", "RMSE", "RRSE", "MAE", "RAE",
+                  "LCCC", "PBIAS", "RmseRelatNull", "MaeRelatNull")
 
   if (any(is.nan(out)))
     out[is.nan(out)] <- NA
