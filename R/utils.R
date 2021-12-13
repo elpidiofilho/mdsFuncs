@@ -1,4 +1,5 @@
 #' Compare values ==
+#' @description https://stackoverflow.com/questions/9508518/why-are-these-numbers-not-equal
 #' @export
 #' @author Erdogan CEVHER
 IsEqual <- function(a,b) {
@@ -7,6 +8,7 @@ IsEqual <- function(a,b) {
 }
 
 #' Compare values <=
+#' @description https://stackoverflow.com/questions/9508518/why-are-these-numbers-not-equal
 #' @export
 #' @author Erdogan CEVHER
 IsSmallerOrEqual <- function(a,b) {
@@ -15,6 +17,7 @@ IsSmallerOrEqual <- function(a,b) {
   } else { return(FALSE) }
 }
 #' Compare values >=
+#' @description https://stackoverflow.com/questions/9508518/why-are-these-numbers-not-equal
 #' @export
 #' @author Erdogan CEVHER
 IsBiggerOrEqual <- function(a,b) {
@@ -22,3 +25,6 @@ IsBiggerOrEqual <- function(a,b) {
   } else if (a > b) { return(TRUE)
   } else { return(FALSE) }
 }
+
+#' @export
+exit <- function() { invokeRestart("abort") }

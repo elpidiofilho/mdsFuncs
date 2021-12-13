@@ -7,7 +7,7 @@
 IsBiggerOrEqual(a, b)
 }
 \description{
-Compare values >=
+https://stackoverflow.com/questions/9508518/why-are-these-numbers-not-equal
 }
 \author{
 Erdogan CEVHER
