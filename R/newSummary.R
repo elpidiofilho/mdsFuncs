@@ -25,8 +25,12 @@ newSummary <- function(data, lev = NULL, model = NULL)
 
   sum_pred_ob <- sum(pred - obs)
   sum_obs <- sum(obs)
-  rmse = sqrt(mean((obs - pred) ^ 2))
+  rmse <- sqrt(mean((obs - pred) ^ 2))
+  # Root Relative Squared Error RRSE
+  rrse <- sqrt(sum((obs - pred) ^ 2) / sum((obs - mean(obs)) ^ 2))
   mae = mean(abs(obs - pred))
+  #Relative Absolute Error (rae)
+  rae <- sum(abs(obs - pred)) / sum(abs(obs - mean(obs)))
   CCC <- epiR::epi.ccc(pred, obs)
   LCCC <- CCC$rho.c[1, 1]
   rss <- sum((pred - obs) ^ 2)  ## residual sum of squares
@@ -42,9 +46,9 @@ newSummary <- function(data, lev = NULL, model = NULL)
   #mae_null <- hydroGOF::mae(obs, data_null, na.rm = TRUE)
   RmseRelatNull <- 1 - (rmse / rmse_null)
   MaeRelatNull <- 1 - (mae / mae_null)
-  out <- c(nse, rmse, rsq, mae, LCCC, pbias, RmseRelatNull, MaeRelatNull)
-  names(out) <- c('NSE', 'RMSE', 'Rsquared', 'MAE', "LCCC", "PBIAS",
-                  "RmseRelatNull" ,"MaeRelatNull")
+  out <- c(nse, rsq, rmse, rrse,  mae, rae, LCCC, pbias, RmseRelatNull, MaeRelatNull)
+  names(out) <- c('NSE', 'Rsquared', 'RMSE', 'RRSE', 'MAE', 'RAE', "LCCC",
+                  "PBIAS","RmseRelatNull" ,"MaeRelatNull")
 
   if (any(is.nan(out)))
     out[is.nan(out)] <- NA
