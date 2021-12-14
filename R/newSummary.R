@@ -36,7 +36,7 @@ newSummary <- function(data, lev = NULL, model = NULL)
   LCCC <- CCC$rho.c[1, 1]
   rss <- sum((pred - obs) ^ 2)  ## residual sum of squares
   tss <- sum((obs - mean(obs)) ^ 2)  ## total sum of squares
-  rsq <- 1 - rss/tss
+  rsq <- summary(lm(pred~obs))$r.squared
   pbias <- sum_pred_ob/sum_obs
   useless <- caret::nullModel(y = pred)
   obs1 <- as.data.frame(obs)
