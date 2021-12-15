@@ -5,8 +5,8 @@
 #' @param todisk boolean if true save to disk
 #' @param path character path to save
 #' @param filename character raster filename
-#' @param ext character extentensio of file to be sabev (.tif, .asc, .img)
-#' @importFrom terra distance writeraster
+#' @param ext character file extentension  (.tif, .asc, .img)
+#' @importFrom terra distance writeRaster
 #' @importFrom here here
 #' @return SpatRaster
 #' @export
@@ -14,22 +14,21 @@
 #' @examples
 #' # rdist = euc_dist(r1, vec_pt, todisk = FALSE)
 
-euc_dist <- function(r, vct, todisk = FALSE, path, filename, ext = '.tif') {
-  cl = class(vct)
-  if (cl[1] %in% c('sf', 'sp')) {
+euc_dist <- function(r, vct, todisk = FALSE, path = NULL,
+                     filename = NULL, ext = '.tif') {
+  clv = class(vct)
+  clr = class(r)
+  if (clv[1] %in% c('sf', 'sp')) {
     vct = terra::vect(vct)
-  }
-  else {
-    if (cl[1] != ('SpatVector'))  {
+  } else {
+    if (clv[1] != ('SpatVector'))  {
       stop('vct class must be one of sf, sp or SpatVector')
     }
   }
-  clr = class(r)
-  if (clr %in% c("RasterLayer", "RasterStack")) {
+  if (clr[1] %in% c("RasterLayer", "RasterStack")) {
     r = rast(r)
-  }
-  else {
-    if (crl != "SpatRaster") {
+  } else {
+    if (clr[1] != "SpatRaster") {
       stop('raster must be in one of formats : RasterLayer, RasterStack
            or SpatRaster')
     }
