@@ -12,7 +12,8 @@
 #' @export
 #'
 #' @examples
-"' # rdist = euc_dist(r1, vec_pt, todisk = FALSE)
+#' # rdist = euc_dist(r1, vec_pt, todisk = FALSE)
+
 euc_dist <- function(r, vct, todisk = FALSE, path, filename, ext = '.tif') {
   cl = class(vct)
   if (cl[1] %in% c('sf', 'sp')) {
@@ -23,9 +24,8 @@ euc_dist <- function(r, vct, todisk = FALSE, path, filename, ext = '.tif') {
       stop('vct class must be one of sf, sp or SpatVector')
     }
   }
-  rr = raster::raster()
   clr = class(r)
-  if (clr %in% c('RasterLayer', "RasterStack")) {
+  if (clr %in% c("RasterLayer", "RasterStack")) {
     r = rast(r)
   }
   else {
@@ -44,4 +44,4 @@ euc_dist <- function(r, vct, todisk = FALSE, path, filename, ext = '.tif') {
   }
   return(eucdistcut)
 }
-}
+
