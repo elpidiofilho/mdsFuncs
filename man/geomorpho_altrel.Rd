@@ -4,16 +4,16 @@
 \alias{geomorpho_altrel}
 \title{relative height metrics}
 \usage{
-geomorpho_altrel(saga, mde, folder, todisk = TRUE)
+geomorpho_altrel(saga, mde, todisk = FALSE, folder = NULL)
 }
 \arguments{
 \item{saga}{Rsagamcd object}
 
 \item{mde}{SpatialRaster raster}
 
-\item{folder}{character folder name to save files}
-
 \item{todisk}{logical write the generated raster to disk}
+
+\item{folder}{character folder name to save files}
 }
 \value{
 SpatialRaster with 5 layers
@@ -24,6 +24,8 @@ calculates various relative height metrics
     Standardized_Height, Mid_Slope_Positon using SAGA GIS
 }
 \examples{
-# frel = geomorpho_altrel (saga, mde = dem, folder = './morpho',
+# library(rsagacmd)
+# saga <- saga_gis()
+# frel <- geomorpho_altrel (saga, mde = dem, folder = './morpho',
 #                          todisk = TRUE)
 }

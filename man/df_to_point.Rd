@@ -4,7 +4,15 @@
 \alias{df_to_point}
 \title{df_to_point - dataframe to point}
 \usage{
-df_to_point(df, x = "X", y = "Y", crs, todisk = FALSE, pathname = NULL)
+df_to_point(
+  df,
+  x = "X",
+  y = "Y",
+  crs,
+  todisk = FALSE,
+  folder = NULL,
+  filename = NULL
+)
 }
 \arguments{
 \item{df}{dataframe data}
@@ -17,7 +25,9 @@ df_to_point(df, x = "X", y = "Y", crs, todisk = FALSE, pathname = NULL)
 
 \item{todisk}{boolean save the sf object do disk}
 
-\item{pathname}{character path + name + extension of file to be saved}
+\item{folder}{character folder where file will be saved (must exist)}
+
+\item{filenamer}{character file name + extension}
 }
 \value{
 sf object
@@ -26,7 +36,8 @@ sf object
 convert a dataframe with coordinates to a point feature
 }
 \examples{
-df = data.frame(X = c(-42.3,-42.4,-42.5), Y = c(-20.1, -20.2, -20.3))
-pt1 = df_to_point(df, x = 'X', y = 'Y', crs = 'EPSG:4326',
-               todisk = TRUE, pathname = './pontos/pontos.shp')
+# df = data.frame(X = c(-42.3,-42.4,-42.5), Y = c(-20.1, -20.2, -20.3))
+# pt1 = df_to_point(df, x = 'X', y = 'Y', crs = 'EPSG:4326',
+#                todisk = TRUE, folder = './pontos',
+#                filename = 'pontos.shp')
 }

@@ -15,9 +15,20 @@
 #' # frel <- geomorpho_altrel (saga, mde = dem, folder = './morpho',
 #' #                          todisk = TRUE)
 geomorpho_altrel  <- function(saga, mde, todisk = FALSE, folder = NULL) {
-if (todisk == TRUE & is.null(folder)) {
-  stop('if todisk = TRUE a folder name must be defined')
-}
+
+  if (todisk == TRUE & is.null(folder)) {
+    stop('if todisk = TRUE a folder name must be defined')
+  }
+  clr = class(mde)
+  if (clr[1] == "RasterLayer") {
+    r = rast(r)
+  } else {
+    if (clr[1] != "SpatRaster") {
+      stop('mde must be in one of formats  RasterLayer,
+           or SpatRaster')
+    }
+  }
+
   relheights = saga$ta_morphometry$relative_heights_and_slope_positions(dem = mde)
   nm = c('Slope_Height', "Valley_Depth", 'Normalized_Height',
          'Standardized_Height', 'Mid_Slope_Positon'  )
