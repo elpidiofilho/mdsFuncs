@@ -14,7 +14,7 @@ correl_feat_elimin(mcor, testcor = c(0.9, 0.925, 0.95, 0.975), graph = TRUE)
 \item{graph}{boolean plot graphic}
 }
 \value{
-
+character vector with features names
 }
 \description{
 select variables with correlation is greater then

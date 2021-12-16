@@ -30,4 +30,5 @@ Suggests:
     rmarkdown
 VignetteBuilder: knitr
 Depends: 
-    R (>= 4.1.0)
+    R (>= 4.1.0),
+    ggplot2

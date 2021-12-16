@@ -4,7 +4,8 @@
 #' @param mcor matrix correlation matrix
 #' @param testcor numeric values of max correlation to be tested
 #' @param graph boolean plot graphic
-#' @return
+#' @import ggplot2
+#' @return character vector with features names
 #' @export
 #' @examples
 #' #cor_high = correl_feat_elimin(mcor, testcor = c(0.80, 0.90, 0.95, 0.975))
