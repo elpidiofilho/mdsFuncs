@@ -7,9 +7,9 @@
 list_to_fileraster(terrain, path)
 }
 \arguments{
-\item{path}{character folder}
+\item{terrain}{list or SpatRaster}
 
-\item{listrrain}{list or SpatRaster}
+\item{path}{character folder}
 }
 \value{
 SpatRaster

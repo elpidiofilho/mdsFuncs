@@ -4,21 +4,16 @@
 \alias{create_lat_long_rasters}
 \title{Create lat long rasters}
 \usage{
-create_lat_long_rasters(
-  rr,
-  todisk = TRUE,
-  extensao = ".tif",
-  dir_saida = getwd()
-)
+create_lat_long_rasters(rr, todisk = FALSE, filetype = ".tif", folder = NULL)
 }
 \arguments{
 \item{rr}{reference raster}
 
 \item{todisk}{logical whether or not to write files to disk}
 
-\item{extensao}{raster files extension .tif, .asc...}
+\item{filetype}{raster files extension .tif, .asc...}
 
-\item{dirSaida}{Folder where the output files will be saved}
+\item{folder}{Folder where the output files will be saved}
 }
 \value{
 A list with lat e long raster

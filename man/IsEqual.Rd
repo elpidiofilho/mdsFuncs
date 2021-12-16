@@ -6,6 +6,11 @@
 \usage{
 IsEqual(a, b)
 }
+\arguments{
+\item{a}{first value to be compared}
+
+\item{b}{last value to be compared}
+}
 \description{
 https://stackoverflow.com/questions/9508518/why-are-these-numbers-not-equal
 }

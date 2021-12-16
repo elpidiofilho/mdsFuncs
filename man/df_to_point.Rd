@@ -27,7 +27,7 @@ df_to_point(
 
 \item{folder}{character folder where file will be saved (must exist)}
 
-\item{filenamer}{character file name + extension}
+\item{filename}{character file name + extension}
 }
 \value{
 sf object

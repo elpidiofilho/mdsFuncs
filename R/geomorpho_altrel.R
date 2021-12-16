@@ -45,7 +45,7 @@ geomorpho_altrel  <- function(saga, mde, todisk = FALSE, folder = NULL) {
 
 
 #' Title convert lista de rasters em uma pilha de rasters
-#' @param listrrain list or SpatRaster
+#' @param terrain list or SpatRaster
 #' @param path character folder
 #' @return SpatRaster
 #' @importFrom terra rast setMinMax nlyr writeRaster
