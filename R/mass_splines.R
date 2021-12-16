@@ -73,7 +73,7 @@ mpsplinet <- function(obj, var.name, lam = 0.1, d = t(c(0, 5, 15, 30, 60, 100, 2
   obj@horizons <- obj@horizons[, c(idcol, depthcols, var.name)]
   ## TH: remove all horizons with negative depth!
   obj@horizons <- obj@horizons[!obj@horizons[, depthcols[1]] < 0 & !obj@horizons[, depthcols[2]] < 0, ]
-  objd <- as.data.frame(obj)
+  objd <- .as.data.frame.SoilProfileCollection(x = obj)
   ## organize the data:
   ndata <- nrow(objd)
   mxd <- max(d)

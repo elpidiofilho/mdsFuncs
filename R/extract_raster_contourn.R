@@ -9,7 +9,7 @@
 #' @export
 #' @importFrom terra classify as.polygons
 #' @examples
-#' extract_raster_contourn(r)
+#' #extract_raster_contour(r)
 #'
 extract_raster_contour <- function(r) {
   r_rec <- terra::classify(r,

@@ -3,6 +3,8 @@
 export(IsBiggerOrEqual)
 export(IsEqual)
 export(IsSmallerOrEqual)
+export(classify_equal_interval)
+export(classify_quantile)
 export(correl_feat_elimin)
 export(create_lat_long_rasters)
 export(create_rfe_seeds)
