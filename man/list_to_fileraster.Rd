@@ -7,10 +7,12 @@
 list_to_fileraster(terrain, path)
 }
 \arguments{
-\item{path}{}
+\item{terrain}{list or SpatRaster}
+
+\item{path}{character folder}
 }
 \value{
-
+SpatRaster
 }
 \description{
 Title convert lista de rasters em uma pilha de rasters

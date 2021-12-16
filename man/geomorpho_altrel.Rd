@@ -11,15 +11,19 @@ geomorpho_altrel(saga, mde, pasta, todisk = TRUE)
 
 \item{mde}{SpatialRaster raster}
 
-\item{pasta}{character folder name to save files}
+\item{todisk}{logical write the generated raster to disk}
 
-\item{todisk}{boolean write the generated raster to disk}
+\item{folder}{character folder name to save files}
 }
 \value{
-raster stack (SpatialRaster)
+SpatialRaster with 5 layers
 }
 \description{
 calculates various relative height metrics
     Slope_Height, Valley_Depth, Normalized_Height,
-    Standardized_Height, Mid_Slope_Positon
+    Standardized_Height, Mid_Slope_Positon using SAGA GIS
+}
+\examples{
+# frel = geomorpho_altrel (saga, mde = dem, folder = './morpho',
+#                          todisk = TRUE)
 }

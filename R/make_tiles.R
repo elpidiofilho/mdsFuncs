@@ -1,5 +1,5 @@
 #' make tiles from a raster
-#' @description
+#' @description divide a raster in a number of same size tiles
 #' @param r SpatRaster
 #' @param ncol número de divisões verticais
 #' @param nrow  número de divisões horizontais
@@ -14,7 +14,7 @@
 #' tl = make_tiles(r = r1, ncol = 2, nrow = 2,
 #'      path = './tiles', sufix = 'tl', format = '.tif')
 make_tiles <- function(r, ncol = 2, nrow = 2,
-                       path = "./tiles/",
+                       path = NULL,
                        sufix = "tile_",
                        format = ".tif") {
   vtiles <- nrow

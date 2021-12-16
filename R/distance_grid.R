@@ -1,15 +1,15 @@
 #' Distance grid
-#' @description
+#' @description create new features with distance from a
+#'     reference grid
 #' @param px numeric vector of x coordinates
 #' @param py numeric vector of y coordinates
 #' @param nx numeric number or particions in x direction
 #' @param ny numeric number of partitions in y direction
-#'
 #' @return dataframe with point distances to grid
 #' @export
-#'
 #' @examples
-distance_grid <- function(px, py, nx, ny) {
+#'#distance_grid <- function(px = df$x, py = df$y, nx = 3, ny = 3)
+  distance_grid <- function(px, py, nx, ny) {
   maxy <- max(py)
   maxx <- max(px)
   miny <- min(py)

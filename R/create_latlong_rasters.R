@@ -1,16 +1,16 @@
 #' Create lat long rasters
-#' @description cria rasters de latitude e longitude
-#' @param rr raster de referencia
-#' @param todisk boolean gravar ou não os arquivos no disco
-#' @param extensao extensão dos arquivos raster .tif, .asc...
-#' @param dirSaida pasta onde será gravado os arquivos de saída
+#' @description Creates latitude and longitude rasters
+#' @param rr reference raster
+#' @param todisk logical whether or not to write files to disk
+#' @param extensao raster files extension .tif, .asc...
+#' @param dirSaida Folder where the output files will be saved
 #' @importFrom terra crds crop mask writeRaster rast
 #' @importFrom here here
-#' @return lat e long em uma lista
+#' @return A list with lat e long raster
 #' @export
 #' @author Elpidio Filho
 #' @examples
-#'
+#' # create_lat_long_rasters(rr, todisk = FALSE)
 create_lat_long_rasters <- function(rr, todisk = TRUE,
                                  extensao = ".tif",
                                  dir_saida = getwd()) {
@@ -30,7 +30,7 @@ create_lat_long_rasters <- function(rr, todisk = TRUE,
   if (todisk == TRUE) {
     terra::writeRaster(long, here(dir_saida, paste0("long", extensao)),
                        overwrite = TRUE)
-    terra::writeRaster(lat,  here(dir_saida, paste0("lat", extensao)),
+    terra::writeRaster(lat, here(dir_saida, paste0("lat", extensao)),
                        overwrite = TRUE)
   }
   return(list(lat, long))

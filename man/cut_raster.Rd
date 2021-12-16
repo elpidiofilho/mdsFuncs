@@ -9,11 +9,14 @@ cut_raster(r, poly)
 \arguments{
 \item{r}{raster}
 
-\item{poly}{poligono}
+\item{poly}{mask polygon}
 }
 \value{
-raster
+raster cutted and masked
 }
 \description{
 cut raster by polygon
+}
+\examples{
+#cut_raster <- function(r, poly)
 }

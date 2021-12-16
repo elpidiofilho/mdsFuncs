@@ -1,7 +1,7 @@
 # Gera seeds para train ---------------------------------------------------
 
-#' Create caret train seeds
-#'
+#' Create training seeds
+#' @description Create caret seeds for training
 #' @param tuneLength numeric number of levels of hyperparameters
 #' @param model character name of model to be used
 #' @param repeats numeric number of repeats

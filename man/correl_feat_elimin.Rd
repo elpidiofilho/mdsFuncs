@@ -17,7 +17,8 @@ correl_feat_elimin(mcor, testcor = c(0.9, 0.925, 0.95, 0.975), graph = TRUE)
 
 }
 \description{
-High correlation feature
+select variables with correlation is greater then
+   a threshold value
 }
 \examples{
 #cor_high = correl_feat_elimin(mcor, testcor = c(0.80, 0.90, 0.95, 0.975))

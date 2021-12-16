@@ -12,22 +12,22 @@ create_lat_long_rasters(
 )
 }
 \arguments{
-\item{rr}{raster de referencia}
+\item{rr}{reference raster}
 
-\item{todisk}{boolean gravar ou não os arquivos no disco}
+\item{todisk}{logical whether or not to write files to disk}
 
-\item{extensao}{extensão dos arquivos raster .tif, .asc...}
+\item{extensao}{raster files extension .tif, .asc...}
 
-\item{dirSaida}{pasta onde será gravado os arquivos de saída}
+\item{dirSaida}{Folder where the output files will be saved}
 }
 \value{
-lat e long em uma lista
+A list with lat e long raster
 }
 \description{
-cria rasters de latitude e longitude
+Creates latitude and longitude rasters
 }
 \examples{
-
+# create_lat_long_rasters(rr, todisk = FALSE)
 }
 \author{
 Elpidio Filho

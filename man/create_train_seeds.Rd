@@ -2,7 +2,7 @@
 % Please edit documentation in R/create_seeds_train.R
 \name{create_train_seeds}
 \alias{create_train_seeds}
-\title{Create caret train seeds}
+\title{Create training seeds}
 \usage{
 create_train_seeds(tuneLength, model = "rf", repeats = 1, number = 10)
 }
@@ -19,7 +19,7 @@ create_train_seeds(tuneLength, model = "rf", repeats = 1, number = 10)
 list of seeds
 }
 \description{
-Create caret train seeds
+Create caret seeds for training
 }
 \examples{
 seed_train = create_train_seeds(tuneLength = 5, model = 'rf',

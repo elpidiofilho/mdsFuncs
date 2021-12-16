@@ -1,13 +1,15 @@
 #' cut raster
 #' @description cut raster by polygon
 #' @param r  raster
-#' @param poly poligono
-#'
-#' @return raster
+#' @param poly mask polygon
+#' @return raster cutted and masked
 #' @export
 #' @importFrom terra crop mask
 #' @examples
+#' #cut_raster <- function(r, poly)
 cut_raster <- function(r, poly) {
-  r1 <- r |> terra::crop(poly) |> terra::mask(poly)
+  r1 <- r |>
+    terra::crop(poly) |>
+    terra::mask(poly)
   return(r1)
 }

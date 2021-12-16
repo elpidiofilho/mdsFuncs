@@ -1,15 +1,14 @@
 #' Create seeds to RFE function
-#' @description
+#' @description Create seeds to RFE function
 #' @param repeats numeric number of repeats
 #' @param number numeric number of folds
 #' @param subsets numeric vector of subsets
-#'
 #' @return list of seeds
 #' @export
-#'
 #' @examples
-
-create_rfe_seeds <- function(repeats = 1, number = 5, subsets = (2:10)) {
+#  create_rfe_seeds (repeats = 1, number = 5, subsets = c(2:10))
+#'
+create_rfe_seeds <- function(repeats = 1, number = 5, subsets = c(2:10)) {
   if (length(subsets) == 0) {
     stop("subsets deve ter pelo menos um valor")
   }

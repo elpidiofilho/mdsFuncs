@@ -6,11 +6,21 @@
 \usage{
 newSummary(data, lev = NULL, model = NULL)
 }
+\arguments{
+\item{data}{data}
+
+\item{lev}{level}
+
+\item{model}{model}
+}
 \value{
 
 }
 \description{
-New summary function
+summary function with new stats added
+}
+\examples{
+# caret::rfeFuncs$summary = newSummary
 }
 \author{
 Gustavo Veloso

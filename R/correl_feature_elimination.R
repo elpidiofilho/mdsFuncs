@@ -1,13 +1,12 @@
 
 #' High correlation feature
-#'
+#' @description select variables with correlation is greater then
+#'    a threshold value
 #' @param mcor matrix correlation matrix
 #' @param testcor numeric values of max correlation to be tested
 #' @param graph boolean plot graphic
-#'
 #' @return
 #' @export
-#'
 #' @examples
 #' #cor_high = correl_feat_elimin(mcor, testcor = c(0.80, 0.90, 0.95, 0.975))
 correl_feat_elimin <- function(mcor, testcor = c(0.90, 0.925, 0.95, 0.975),

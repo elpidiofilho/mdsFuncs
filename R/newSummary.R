@@ -1,14 +1,15 @@
 #' New summary function
-#'
-#' @param data
-#' @param lev
-#' @param model
+#' @description summary function with new stats added
+#' @param data  data
+#' @param lev level
+#' @param model model
 #' @author Gustavo Veloso
 #' @return
 #' @export
 #' @importFrom epiR epi.ccc
 #' @importFrom caret nullModel
 #' @examples
+#' # caret::rfeFuncs$summary = newSummary
 newSummary <- function(data, lev = NULL, model = NULL)
 {
   isNA <- is.na(data$pred)

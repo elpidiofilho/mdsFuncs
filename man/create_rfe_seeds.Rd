@@ -4,7 +4,7 @@
 \alias{create_rfe_seeds}
 \title{Create seeds to RFE function}
 \usage{
-create_rfe_seeds(repeats = 1, number = 5, subsets = (2:10))
+create_rfe_seeds(repeats = 1, number = 5, subsets = c(2:10))
 }
 \arguments{
 \item{repeats}{numeric number of repeats}
@@ -18,4 +18,7 @@ list of seeds
 }
 \description{
 Create seeds to RFE function
+}
+\examples{
+
 }

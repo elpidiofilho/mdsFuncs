@@ -1,25 +1,24 @@
 #' relative height metrics
 #' @description calculates various relative height metrics
 #'     Slope_Height, Valley_Depth, Normalized_Height,
-#'     Standardized_Height, Mid_Slope_Positon
+#'     Standardized_Height, Mid_Slope_Positon using SAGA GIS
 #' @param saga Rsagamcd object
 #' @param mde SpatialRaster raster
-#' @param pasta character folder name to save files
-#' @param todisk boolean write the generated raster to disk
-#'
-#' @return raster stack (SpatialRaster)
+#' @param folder character folder name to save files
+#' @param todisk logical write the generated raster to disk
+#' @return SpatialRaster with 5 layers
 #' @export
 #' @importFrom Rsagacmd saga_gis
 #' @examples
-#' frel = geomorpho_altrel (saga, mde = dem, pasta = './morpho,
-#'                          todisk = TRUE)
+#' # frel = geomorpho_altrel (saga, mde = dem, folder = './morpho',
+#' #                          todisk = TRUE)
 geomorpho_altrel  <- function(saga, mde, pasta, todisk = TRUE) {
   relheights = saga$ta_morphometry$relative_heights_and_slope_positions(dem = mde)
   nm = c('Slope_Height', "Valley_Depth", 'Normalized_Height',
          'Standardized_Height', 'Mid_Slope_Positon'  )
   names(relheights) = nm
   if (todisk == TRUE) {
-    list_to_fileraster(terrain = relheights, path = pasta)
+    list_to_fileraster(terrain = relheights, path = folder)
   }
   for (i in 1:length(nm)) {
     names(relheights[[i]]) = nm[i]
@@ -31,14 +30,15 @@ geomorpho_altrel  <- function(saga, mde, pasta, todisk = TRUE) {
 
 #' Title convert lista de rasters em uma pilha de rasters
 #'
-#' @param terrain
-#' @param path
-#'
-#' @return
+#' @param terrain list or SpatRaster
+#' @param path character folder
+#' @return SpatRaster
 #' @importFrom terra rast setMinMax nlyr writeRaster
 #' @importFrom here here
 #' @importFrom sf write_sf
 #' @examples
+#' # rl = list_to_fileraster(alrel, 'morpho') {
+
 list_to_fileraster <- function(terrain, path) {
   if (class(terrain) == 'list') {
     nl = length(terrain)

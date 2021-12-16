@@ -19,5 +19,9 @@ distance_grid(px, py, nx, ny)
 dataframe with point distances to grid
 }
 \description{
-Distance grid
+create new features with distance from a
+    reference grid
+}
+\examples{
+#distance_grid <- function(px = df$x, py = df$y, nx = 3, ny = 3)
 }

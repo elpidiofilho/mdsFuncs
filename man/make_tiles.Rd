@@ -8,7 +8,7 @@ make_tiles(
   r,
   ncol = 2,
   nrow = 2,
-  path = "./tiles/",
+  path = NULL,
   sufix = "tile_",
   format = ".tif"
 )
@@ -30,7 +30,7 @@ make_tiles(
 SpatRaster
 }
 \description{
-make tiles from a raster
+divide a raster in a number of same size tiles
 }
 \examples{
 tl = make_tiles(r = r1, ncol = 2, nrow = 2,
