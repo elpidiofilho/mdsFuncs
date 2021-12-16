@@ -46,7 +46,7 @@ classify_quantile <- function(r, q = c(0.25, 0.5, 0.75), decimal_places = 2){
 #' @importFrom terra minmax setMinMax classify
 #' @export
 #' @examples
-#' classify_equal_interval(r = dem, num_interval = 5, decimal_places = 2)
+#' #classify_equal_interval(r = dem, num_interval = 5, decimal_places = 2)
 #'
 classify_equal_interval <- function(r, num_interval = 5, decimal_places = 2){
   setMinMax(r)
@@ -82,15 +82,16 @@ classify_equal_interval <- function(r, num_interval = 5, decimal_places = 2){
 #' @importFrom terra minmax setMinMax quantile classify
 #' @importFrom stats kmeans
 #' @importFrom dplyr group_by summarise arrange select mutate
+#' @importFrom stats na.omit
 #' @export
 #' @examples
 #' #rk = classify_kmeans(r, 4, decimal_places = 0)
    #plot(rk)
 
 classify_kmeans <- function(r, num_cluster = 5, decimal_places = 2){
+  classe = NULL
   setMinMax(r)
-  mm = terra::minmax(r)
-  valor <- na.omit(terra::values(r))[,1]
+  valor <- stats::na.omit(terra::values(r))[,1]
   kmncluster <-  stats::kmeans(valor, centers = num_cluster,
                        iter.max = 500,
                        nstart = 5,

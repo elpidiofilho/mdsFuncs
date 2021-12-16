@@ -19,7 +19,7 @@ Calculates the frequency of occurrence of the
     modal value for each cell/pixel of a raster stack
 }
 \examples{
-modalfreq = mode_freq(r = r1, ncores = 2)
+# modalfreq = mode_freq(r = r1, ncores = 2)
 }
 \author{
 <elpidio@ufv.br>

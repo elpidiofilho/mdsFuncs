@@ -8,7 +8,7 @@
 #' @export
 #' @importFrom terra app
 #' @examples
-#' modalfreq = mode_freq(r = r1, ncores = 2)
+#' # modalfreq = mode_freq(r = r1, ncores = 2)
 
 mode_freq <- function(r, ncores = 2) {
   if (class(r) == 'RasterStack') {

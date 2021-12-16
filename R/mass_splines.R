@@ -59,7 +59,7 @@
 #'
 #' @examples
 #'#
-#'mpsplinet(rdSoil,
+#'# mpsplinet(rdSoil,
 #'#          var.name = "C", lam = 0.1,
 #'#          d = t(c(0, 10)), vlow = 0,
 #'#          vhigh = 1000, show.progress = TRUE

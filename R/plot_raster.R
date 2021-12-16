@@ -6,22 +6,24 @@
 #' @param style character "sd", "equal", "pretty", "quantile",
 #'     "kmeans"
 #' @return
+#' @importFrom terra minmax rast setMinMax
+#' @importFrom classInt classIntervals
+#' @importFrom rasterVis levelplot
+#' @importFrom RColorBrewer brewer.pal
 #' @export
 #' @examples
 #' # plot_raster(r = dem, num_color = 8, num_decimal = 2, style = "quantile")
-
 plot_raster <- function(r, num_color = 10, num_decimal = 1, style = "quantile") {
 #  all_style = c("fixed", "sd", "equal", "pretty", "quantile",
 #                "kmeans", "hclust", "bclust", "fisher",
 #                "jenks", "dpih" ,"headtails")
-
   if (class(r) == 'RasterLayer') {
     nm = names(r)
-    r = rast(r)
+    r = terra::rast(r)
     names(r) = nm
   }
-  setMinMax(r)
-  mn = minmax(r)
+  terra::setMinMax(r)
+  mn = terra::minmax(r)
   if (is.factor(r) == TRUE) {
     num_color = nrow(unique(r))
   }
@@ -29,7 +31,7 @@ plot_raster <- function(r, num_color = 10, num_decimal = 1, style = "quantile") 
   break1 <- classInt::classIntervals(r[!is.na(r)],
                                      thr = 0.35,
                                      n = num_color,
-                                     style = estilo)
+                                     style = style)
   myColorbar1 = break1$brks
   p1 <- rasterVis::levelplot(r,
                              main = names(r),
@@ -37,7 +39,7 @@ plot_raster <- function(r, num_color = 10, num_decimal = 1, style = "quantile") 
                              xlab = NULL,
                              ylab = NULL,
                              scales = list(draw = FALSE),
-                             col.regions = colorRampPalette(brewer.pal(num_color,
+                             col.regions = grDevices::colorRampPalette(RColorBrewer::brewer.pal(num_color,
                                                                        'RdYlGn')),
                              at = break1$brks,
                              colorkey = list(at = break1$brks,
