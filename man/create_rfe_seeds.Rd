@@ -20,5 +20,6 @@ list of seeds
 Create seeds to RFE function
 }
 \examples{
+create_rfe_seeds (repeats = 1, number = 5, subsets = c(2:10))
 
 }

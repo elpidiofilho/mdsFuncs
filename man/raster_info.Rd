@@ -2,7 +2,8 @@
 % Please edit documentation in R/raster_info.R
 \name{raster_info}
 \alias{raster_info}
-\title{Create dataframe with characteriscts of a list of raster}
+\title{Recover info from spatRaster
+Create dataframe with characteristcs of a list of raster}
 \usage{
 raster_info(l)
 }
@@ -16,5 +17,6 @@ dataframe with rasters characteristics.
 Create dataframe with characteriscts of a list of raster
 }
 \examples{
+# raster_info(l)
 
 }

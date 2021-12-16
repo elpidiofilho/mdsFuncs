@@ -1,15 +1,17 @@
-
-#' Create dataframe with characteriscts of a list of raster
-#'
+#' Recover info from spatRaster
+#' Create dataframe with characteristcs of a list of raster
+#' @description Create dataframe with characteriscts of a list of raster
 #' @param l vector of rater filenames inclunding path
-#'
 #' @return dataframe with rasters characteristics.
 #' @export
 #' @importFrom terra rast nlyr ncell nrow ncol yres xres crs
 #' @importFrom dplyr summarise_at pull rename_all vars n_distinct select one_of
 #' @importFrom dplyr filter
 #' @importFrom tibble rownames_to_column
+#' @importFrom stats lm predict reorder sd var
+#' @importFrom utils glob2rx setTxtProgressBar txtProgressBar
 #' @examples
+#' # raster_info(l)
 #'
 raster_info <- function(l) {
   nf <- file.exists(l)

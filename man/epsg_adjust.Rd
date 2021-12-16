@@ -12,11 +12,11 @@ epsg_adjust(l, epsg)
 \item{epsg}{character epsg in format: 'epsg:xxxxx'. Ex.'epsg:32723'}
 }
 \value{
-
+SpatRaster
 }
 \description{
 Add epsg information for all rasters of a vector
-containing path + raster filenames
+    containing path + raster filenames
 }
 \examples{
 l = c("./rasters/mde.tif', './rasters/slope.tif")

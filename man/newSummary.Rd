@@ -14,7 +14,7 @@ newSummary(data, lev = NULL, model = NULL)
 \item{model}{model}
 }
 \value{
-
+list
 }
 \description{
 summary function with new stats added

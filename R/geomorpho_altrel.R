@@ -29,7 +29,6 @@ geomorpho_altrel  <- function(saga, mde, pasta, todisk = TRUE) {
 
 
 #' Title convert lista de rasters em uma pilha de rasters
-#'
 #' @param terrain list or SpatRaster
 #' @param path character folder
 #' @return SpatRaster
@@ -37,7 +36,7 @@ geomorpho_altrel  <- function(saga, mde, pasta, todisk = TRUE) {
 #' @importFrom here here
 #' @importFrom sf write_sf
 #' @examples
-#' # rl = list_to_fileraster(alrel, 'morpho') {
+#' # rl = list_to_fileraster(alrel, "morpho")
 
 list_to_fileraster <- function(terrain, path) {
   if (class(terrain) == 'list') {

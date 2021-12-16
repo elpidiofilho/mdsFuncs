@@ -4,7 +4,7 @@
 #' @param lev level
 #' @param model model
 #' @author Gustavo Veloso
-#' @return
+#' @return list
 #' @export
 #' @importFrom epiR epi.ccc
 #' @importFrom caret nullModel

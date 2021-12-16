@@ -17,3 +17,6 @@ SpatRaster
 \description{
 Title convert lista de rasters em uma pilha de rasters
 }
+\examples{
+# rl = list_to_fileraster(alrel, "morpho")
+}
