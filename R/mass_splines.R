@@ -1,3 +1,5 @@
+#' @importFrom sp  coordinates
+#'
 # Converts a SoilProfileCollection to a data frame:
 .as.data.frame.SoilProfileCollection <- function(x, row.names = NULL, optional = FALSE, ...){
 

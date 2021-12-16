@@ -8,8 +8,8 @@
 #' @importFrom stringr str_detect
 #' @importFrom terra rast crs writeRaster
 #' @examples
-#' l = c("./rasters/mde.tif', './rasters/slope.tif")
-#' epsg_adjust(l, "epsg:32723")
+#' #l = c("./rasters/mde.tif', './rasters/slope.tif")
+#' #    epsg_adjust(l, "epsg:32723")
 epsg_adjust <- function(l, epsg) {
   if (stringr::str_detect(epsg, "epsg:") != TRUE) {
     stop("epsg must be written in the format epsg:xxxxx.

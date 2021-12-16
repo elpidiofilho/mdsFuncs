@@ -18,12 +18,12 @@
 
 df_to_point <- function(df, x = 'X', y = 'Y', crs, todisk = FALSE,
                      folder = NULL, filename = NULL) {
-  if (todisk == TRUE & is.null(pathname)) {
+  if (todisk == TRUE & is.null(folder)) {
     stop('if todisk = TRUE a folder name must be defined')
   }
   pt = sf::st_as_sf(df, coords = c(x, y), crs = crs)
   if (todisk == TRUE) {
-    fn = here::here(folder,filename)
+    fn = here::here(folder, filename)
     sf::write_sf(pt, fn, append = FALSE)
   }
   return(pt)
