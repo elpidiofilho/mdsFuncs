@@ -16,5 +16,5 @@ named character vector with layer names and unique values
 Determine raster unique valuese
 }
 \examples{
-unique_value_raster(r)
+# unique_value_raster(r)
 }

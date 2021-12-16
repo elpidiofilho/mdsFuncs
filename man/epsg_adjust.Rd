@@ -20,5 +20,5 @@ Add epsg information for all rasters of a vector
 }
 \examples{
 #l = c("./rasters/mde.tif', './rasters/slope.tif")
-#    epsg_adjust(l, "epsg:32723")
+#epsg_adjust(l, "epsg:32723")
 }

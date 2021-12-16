@@ -12,7 +12,7 @@ classify_quantile <- function(r, q = c(0.25, 0.5, 0.75), decimal_places = 2){
   if (!mdsFuncs::IsEqual(a = max(q), b = 1)) {
     q = c(q, 1)
   }
-  setMinMax(r)
+  terra::setMinMax(r)
   mm = terra::minmax(r)
   lq = length(q)
   c = seq(1:lq)
@@ -49,7 +49,7 @@ classify_quantile <- function(r, q = c(0.25, 0.5, 0.75), decimal_places = 2){
 #' #classify_equal_interval(r = dem, num_interval = 5, decimal_places = 2)
 #'
 classify_equal_interval <- function(r, num_interval = 5, decimal_places = 2){
-  setMinMax(r)
+  terra::setMinMax(r)
   mm = terra::minmax(r)
   interval = (mm[2] - mm[1]) / num_interval
   qti = seq(mm[1], mm[2], interval)
@@ -90,7 +90,7 @@ classify_equal_interval <- function(r, num_interval = 5, decimal_places = 2){
 
 classify_kmeans <- function(r, num_cluster = 5, decimal_places = 2){
   classe = NULL
-  setMinMax(r)
+  terra::setMinMax(r)
   valor <- stats::na.omit(terra::values(r))[,1]
   kmncluster <-  stats::kmeans(valor, centers = num_cluster,
                        iter.max = 500,

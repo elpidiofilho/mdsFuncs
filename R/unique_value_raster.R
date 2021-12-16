@@ -8,7 +8,7 @@
 #' @importFrom tibble rownames_to_column
 #' @importFrom dplyr rename
 #' @examples
-#' unique_value_raster(r)
+#' # unique_value_raster(r)
 
 unique_value_raster <- function(r) {
   n = terra::nlyr(r)
