@@ -14,6 +14,7 @@
 #' # raster_info(l)
 #'
 raster_info <- function(l) {
+  EPSG <- freq <- NULL
   nf <- file.exists(l)
   ne <- l[!nf]
   if (length(ne > 0)) {

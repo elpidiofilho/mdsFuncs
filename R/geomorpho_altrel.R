@@ -12,7 +12,8 @@
 #' @examples
 #' # frel = geomorpho_altrel (saga, mde = dem, folder = './morpho',
 #' #                          todisk = TRUE)
-geomorpho_altrel  <- function(saga, mde, pasta, todisk = TRUE) {
+geomorpho_altrel  <- function(saga, mde, folder, todisk = TRUE) {
+
   relheights = saga$ta_morphometry$relative_heights_and_slope_positions(dem = mde)
   nm = c('Slope_Height', "Valley_Depth", 'Normalized_Height',
          'Standardized_Height', 'Mid_Slope_Positon'  )

@@ -4,16 +4,16 @@
 \alias{geomorpho_altrel}
 \title{relative height metrics}
 \usage{
-geomorpho_altrel(saga, mde, pasta, todisk = TRUE)
+geomorpho_altrel(saga, mde, folder, todisk = TRUE)
 }
 \arguments{
 \item{saga}{Rsagamcd object}
 
 \item{mde}{SpatialRaster raster}
 
-\item{todisk}{logical write the generated raster to disk}
-
 \item{folder}{character folder name to save files}
+
+\item{todisk}{logical write the generated raster to disk}
 }
 \value{
 SpatialRaster with 5 layers
