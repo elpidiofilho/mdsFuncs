@@ -2,7 +2,7 @@
 % Please edit documentation in R/mass_splines.R
 \name{mpsplinet}
 \alias{mpsplinet}
-\title{mpsplinet}
+\title{Fits a mass preserving spline}
 \usage{
 mpsplinet(
   obj,
@@ -15,11 +15,38 @@ mpsplinet(
 )
 }
 \arguments{
-\item{show.progress}{}
+\item{obj}{object of class SoilProfileCollection}
+
+\item{var.name}{character target variable name (must be a numeric variable)}
+
+\item{lam}{numeric lambda the smoothing parameter}
+
+\item{d}{numeric standard depths}
+
+\item{vlow}{numeric smallest value of the target variable (smaller values will be replaced)}
+
+\item{vhigh}{numeric highest value of the target variable (larger values will be replaced)}
+
+\item{show.progress}{logical specifies whether to display the progress bar}
 }
 \value{
-
+Returns a list with four elements:
+   idcol  - site ID column
+   var.fitted - matrix; are are spline-estimated values of the target variable at observed depths (upper and lower depths are indicated as attributes)
+   var.std - matrix; are spline-estimated values of the target variable at standard depths
+   var.1cm - matrix; are spline-estimated values of the target variable using the 1 cm increments
 }
 \description{
-mpsplinet
+Fits a mass preserving spline to a soil profile data
+}
+\examples{
+#
+mpsplinet(rdSoil,
+#          var.name = "C", lam = 0.1,
+#          d = t(c(0, 10)), vlow = 0,
+#          vhigh = 1000, show.progress = TRUE
+# )
+}
+\author{
+Brendan Malone and Tomislav Hengl
 }

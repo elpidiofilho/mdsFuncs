@@ -4,7 +4,7 @@
 \alias{euc_dist}
 \title{euc_distance - Euclidian distante to a vector}
 \usage{
-euc_dist(r, vct, todisk = FALSE, path, filename, ext = ".tif")
+euc_dist(r, vct, todisk = FALSE, path = NULL, filename = NULL, ext = ".tif")
 }
 \arguments{
 \item{r}{SpatRaster raster}

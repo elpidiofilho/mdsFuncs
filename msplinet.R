@@ -1,27 +1,9 @@
-#' Fits a mass preserving spline
-#' @description Fits a mass preserving spline to a soil profile data
-#' @param obj object of class SoilProfileCollection
-#' @param var.name character target variable name (must be a numeric variable)
-#' @param lam numeric lambda the smoothing parameter
-#' @param d numeric standard depths
-#' @param vlow numeric smallest value of the target variable (smaller values will be replaced)
-#' @param vhigh numeric highest value of the target variable (larger values will be replaced)
-#' @param show.progress logical specifies whether to display the progress bar
-#' @author Brendan Malone and Tomislav Hengl
-#' @return Returns a list with four elements:
-#'    idcol  - site ID column
-#'    var.fitted - matrix; are are spline-estimated values of the target variable at observed depths (upper and lower depths are indicated as attributes)
-#'    var.std - matrix; are spline-estimated values of the target variable at standard depths
-#'    var.1cm - matrix; are spline-estimated values of the target variable using the 1 cm increments
-#' @export
-#'
-#' @examples
-#'#
-#'mpsplinet(rdSoil,
-#'#          var.name = "C", lam = 0.1,
-#'#          d = t(c(0, 10)), vlow = 0,
-#'#          vhigh = 1000, show.progress = TRUE
-#'# )
+
+mpsplinet(rdSoil,
+  var.name = "C", lam = 0.1,
+  d = t(c(0, 10)), vlow = 0,
+  vhigh = 1000, show.progress = TRUE
+)
 
 
 mpsplinet <- function(obj, var.name, lam = 0.1, d = t(c(0, 5, 15, 30, 60, 100, 200)), vlow = 0, vhigh = 1000, show.progress = TRUE) {
