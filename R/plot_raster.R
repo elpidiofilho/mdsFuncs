@@ -5,7 +5,7 @@
 #' @param num_decimal integer decimal places in legend
 #' @param style character "sd", "equal", "pretty", "quantile",
 #'     "kmeans"
-#' @return
+#' @return NULL
 #' @importFrom raster raster ratify levels unique
 #' @importFrom terra minmax rast setMinMax
 #' @importFrom classInt classIntervals
@@ -47,6 +47,13 @@ plot_raster = function(r, num_color = 10, num_decimal = 1, style = "quantile") {
     myColorbar1 <- break1$brks
     rc1 <- r
   }
+
+  ck = list(at = break1$brks,
+            labels = list(at = c(myColorbar1[1], myColorbar1),
+                          labels = c("1000000", round(myColorbar1,                                   num_decimal)),
+                          col = c("white", rep("black", length(myColorbar1))))
+  )
+
   p1 <- rasterVis::levelplot(rc1,
                              main = names(r),
                              margin = FALSE,
@@ -56,19 +63,7 @@ plot_raster = function(r, num_color = 10, num_decimal = 1, style = "quantile") {
                              col.regions = grDevices::colorRampPalette(RColorBrewer::brewer.pal(num_color,
                                                                                                 'RdYlGn')),
                              at = break1$brks,
-                             colorkey = list(at = break1$brks,
-                                             labels = list(at = c(myColorbar1[1],
-                                                                  myColorbar1),
-                                                           labels = c("1000000",
-                                                                      round(myColorbar1,
-                                                                            num_decimal)),
-                                                           col = c("white",
-                                                                   rep("black",
-                                                                       length(myColorbar1)))
-                                             )
-                             )
+                             colorkey = ck
   )
   print(p1)
-
-
 }
