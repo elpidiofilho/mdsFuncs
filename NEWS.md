@@ -7,5 +7,6 @@
 * added classify_quantile to classify raster by quantiles
 * added classify_equal_interval to classify raster by equal intervals
 * added classify_kmeans use kmeans cluster to classify raster by equal intervals
-
+# mdsFuncs 0.2.4
+* plot raster function
 

@@ -25,7 +25,7 @@ raster_dummy <- function(r) {
     b <- r
     b[] <- ifelse(b[] == u[j], 1, 0)
     rbin <- terra::`add<-`(rbin, b)
-    rnames <-  append(rnames, paste(names(r),
+    rnames <- append(rnames, paste(names(r),
                                    paste("level", u[j], sep = "."), sep = "_"))
   }
   names(rbin) <- rnames

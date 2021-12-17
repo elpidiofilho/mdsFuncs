@@ -14,7 +14,7 @@ mode_freq <- function(r, ncores = 2) {
   if (class(r) == 'RasterStack') {
     r = rast(r)
   } else {
-    if (class(r) != 'SpatRaster'){
+    if (class(r) != 'SpatRaster') {
       stop('Error : file must be in RasterStack or SpatRaster format')
     }
   }

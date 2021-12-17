@@ -8,18 +8,18 @@
 #' @examples
 #' # rd = stack_dummy(l = l, threshold = 8)
 stack_dummy <- function(l, threshold = 10) {
-  nl = length(l)
+  nl <- length(l)
   if (nl > 0 ) {
     for (i in 1:nl) {
-      r = rast(l[i])
-      un = nrow(terra::unique(r))
+      r <- rast(l[i])
+      un <- nrow(terra::unique(r))
       if (un <= threshold) {
-        r = mdsFuncs::raster_dummy(r)
+        r <- mdsFuncs::raster_dummy(r)
       }
       if (i == 1) {
-        rr = r
+        rr <- r
       } else {
-        rr = c(rr, r)
+        rr <- c(rr, r)
       }
     }
     return(rr)

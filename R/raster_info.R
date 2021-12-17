@@ -60,7 +60,8 @@ raster_info <- function(l) {
   dfunique <- dfinfo |>
     dplyr::summarise_at(dplyr::vars(-layer), dplyr::n_distinct)
 
-  vprob <- dfunique |> t() |> data.frame() |>
+  vprob <- dfunique |> t() |>
+    data.frame() |>
     tibble::rownames_to_column() |>
     dplyr::rename_all(~c("var", "freq")) |>
     dplyr::filter(freq > 1) |>
