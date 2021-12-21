@@ -8,6 +8,14 @@
 #' @examples
 #' #cut_raster <- function(r, poly)
 cut_raster <- function(r, poly) {
+  if (class(r) %in% c('RasterStack', 'RasterLayer')) {
+    r = rast(r)
+  } else {
+    if (class(r) != 'SpatRaster') {
+      stop('Error : file must be in RasterStack, RasterLayer or SpatRaster format')
+    }
+  }
+
   r1 <- r |>
     terra::crop(poly) |>
     terra::mask(poly)

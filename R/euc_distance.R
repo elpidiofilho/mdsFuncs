@@ -12,10 +12,18 @@
 #' @export
 #'
 #' @examples
-#' # rdist = euc_dist(r1, vec_pt, todisk = FALSE)
+#' # rdist = euc_dist(r, vec_pt, todisk = FALSE)
 
 euc_dist <- function(r, vct, todisk = FALSE, path = NULL,
                      filename = NULL, ext = '.tif') {
+  if (class(r) %in% c('RasterLayer')) {
+    r = rast(r)
+  } else {
+    if (class(r) != 'SpatRaster') {
+      stop('Error : file must be in RasterStack or SpatRaster format')
+    }
+  }
+
   clv = class(vct)
   clr = class(r)
   if (clv[1] %in% c('sf', 'sp')) {

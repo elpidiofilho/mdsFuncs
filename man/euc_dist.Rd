@@ -26,5 +26,5 @@ SpatRaster
 Calculates euclidean distance to point, line or polygon
 }
 \examples{
-# rdist = euc_dist(r1, vec_pt, todisk = FALSE)
+# rdist = euc_dist(r, vec_pt, todisk = FALSE)
 }

@@ -1,6 +1,6 @@
 #' Create lat long rasters
 #' @description Creates latitude and longitude rasters
-#' @param rr reference raster
+#' @param r reference raster
 #' @param todisk logical whether or not to write files to disk
 #' @param filetype raster files extension .tif, .asc...
 #' @param folder Folder where the output files will be saved
@@ -10,12 +10,19 @@
 #' @export
 #' @author Elpidio Filho
 #' @examples
-#' # create_lat_long_rasters(rr, todisk = FALSE)
-create_lat_long_rasters <- function(rr, todisk = FALSE,
+#' # create_lat_long_rasters(r, todisk = FALSE)
+create_lat_long_rasters <- function(r, todisk = FALSE,
                                  filetype = ".tif",
                                  folder = NULL) {
 
-  r1 <- rr[[1]]
+  if (class(r) %in% c('RasterStack', 'RasterLayer')) {
+    r = rast(r)
+  } else {
+    if (class(r) != 'SpatRaster') {
+      stop('Error : file must be in RasterStack, RasterLayer or SpatRaster format')
+    }
+  }
+  r1 <- r[[1]]
   lat <- long <- r1
   xy <- terra::crds(long, na.rm = FALSE)# obtém as coordenadas de cada célula
   long[] <- xy[, 1]

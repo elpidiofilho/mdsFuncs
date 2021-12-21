@@ -9,7 +9,16 @@
 #' @examples
 #' # classify_quantile(r = dem, q = c(0.25, 0.5, 0.75), decimal_places = 0)
 classify_quantile <- function(r, q = c(0.25, 0.5, 0.75), decimal_places = 2){
-  if (!mdsFuncs::IsEqual(a = max(q), b = 1)) {
+
+  if (class(r) %in% c('RasterStack', 'RasterLayer')) {
+    r = rast(r)
+  } else {
+    if (class(r) != 'SpatRaster') {
+      stop('Error : file must be in RasterStack, RasterLayer or SpatRaster format')
+    }
+  }
+
+    if (!mdsFuncs::IsEqual(a = max(q), b = 1)) {
     q = c(q, 1)
   }
   terra::setMinMax(r)

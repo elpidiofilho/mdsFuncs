@@ -4,10 +4,10 @@
 \alias{create_lat_long_rasters}
 \title{Create lat long rasters}
 \usage{
-create_lat_long_rasters(rr, todisk = FALSE, filetype = ".tif", folder = NULL)
+create_lat_long_rasters(r, todisk = FALSE, filetype = ".tif", folder = NULL)
 }
 \arguments{
-\item{rr}{reference raster}
+\item{r}{reference raster}
 
 \item{todisk}{logical whether or not to write files to disk}
 
@@ -22,7 +22,7 @@ A list with lat e long raster
 Creates latitude and longitude rasters
 }
 \examples{
-# create_lat_long_rasters(rr, todisk = FALSE)
+# create_lat_long_rasters(r, todisk = FALSE)
 }
 \author{
 Elpidio Filho

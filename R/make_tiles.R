@@ -17,6 +17,14 @@ make_tiles <- function(r, ncol = 2, nrow = 2,
                        path = NULL,
                        sufix = "tile_",
                        format = ".tif") {
+  if (class(r) %in% c('RasterStack', 'RasterLayer')) {
+    r = rast(r)
+  } else {
+    if (class(r) != 'SpatRaster') {
+      stop('Error : file must be in RasterStack or SpatRaster format')
+    }
+  }
+
   vtiles <- nrow
   htiles <- ncol
   ntiles <- vtiles * htiles

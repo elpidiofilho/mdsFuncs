@@ -16,9 +16,6 @@ plot_raster(r, num_color = 10, num_decimal = 1, style = "quantile")
 \item{style}{character "sd", "equal", "pretty", "quantile",
 "kmeans"}
 }
-\value{
-
-}
 \description{
 plot raster files
 }
