@@ -20,6 +20,9 @@ df_to_point <- function(df, x = "X", y = "Y", crs, todisk = FALSE,
   if (todisk == TRUE & is.null(folder)) {
     stop("if todisk = TRUE a folder name must be defined")
   }
+  if (todisk == TRUE & is.null(filename)) {
+    stop("if todisk = TRUE a filename name must be defined")
+  }
   pt <- sf::st_as_sf(df, coords = c(x, y), crs = crs)
   if (todisk == TRUE) {
     fn <- here::here(folder, filename)
