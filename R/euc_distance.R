@@ -1,11 +1,11 @@
-#' euc_distance - Euclidian distante to a vector
+#' euc_distance - Euclidean distance to a vector
 #' @description Calculates euclidean distance to point, line or polygon
 #' @param r SpatRaster raster
 #' @param vct SpatVector point, line or polygon
-#' @param todisk boolean if true save to disk
-#' @param path character path to save
+#' @param todisk Boolean if true save to disk
+#' @param folder character path to save
 #' @param filename character raster filename
-#' @param ext character file extentension  (.tif, .asc, .img)
+#' @param ext character file extension  (.tif, .asc, .img)
 #' @importFrom terra distance writeRaster
 #' @importFrom here here
 #' @return SpatRaster
@@ -22,6 +22,11 @@ euc_dist <- function(r, vct, todisk = FALSE, path = NULL,
       stop("Error : file must be in RasterStack or SpatRaster format")
     }
   }
+
+   if (todisk == TRUE & is.null(filename)) {
+    stop("if todisk = TRUE a filename name must be defined")
+  }
+
 
   clv <- class(vct)
   clr <- class(r)
@@ -46,6 +51,9 @@ euc_dist <- function(r, vct, todisk = FALSE, path = NULL,
   eucdistcut <- mdsFuncs::cut_raster(euc_dist, cont)
   if (todisk == TRUE) {
     fn <- here::here(path, paste0(filename, ext))
+    if(dir.exists(file.path(here(path)) )== FALSE) {
+      stop('ERROR: path not exists')
+    }
     terra::writeRaster(x = eucdistcut, filename = fn, overwrite = TRUE)
   }
   return(eucdistcut)
