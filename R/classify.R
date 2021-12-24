@@ -1,7 +1,7 @@
 #' Classify by quantile
 #' @description Classify a inteter or numeric raster using quantiles interval
 #' @param r SpatRaster raster to be classified
-#' @param q numeric quantiles do be usse (interval 0 to 1)
+#' @param q numeric quantiles do be used (interval 0 to 1)
 #' @param decimal_places define the number of decimal places to legend
 #' @return SpatRaster returns a categorical raster
 #' @importFrom terra minmax setMinMax quantile classify
