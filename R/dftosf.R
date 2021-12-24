@@ -17,8 +17,8 @@
 #' #                filename = 'pontos.shp')
 df_to_point <- function(df, x = "X", y = "Y", crs, todisk = FALSE,
                         folder = NULL, filename = NULL) {
-  if (class(df)!= "data.frame") {
-    stop('df must be a dataframe')
+  if (class(df) != "data.frame") {
+    stop("df must be a dataframe")
   }
   if (x %in% colnames(df) == FALSE) {
     stop("x must be a valid column name")
