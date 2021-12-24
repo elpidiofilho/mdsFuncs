@@ -9,6 +9,3 @@
 #'   \item{projecao_datum}{projection and datum of each epsg code}
 #' }
 "epsg_br"
-
-
-

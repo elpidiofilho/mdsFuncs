@@ -11,19 +11,18 @@
 #' @export
 #' @importFrom sf st_as_sf write_sf
 #' @examples
-#'# df = data.frame(X = c(-42.3,-42.4,-42.5), Y = c(-20.1, -20.2, -20.3))
-#'# pt1 = df_to_point(df, x = 'X', y = 'Y', crs = 'EPSG:4326',
-#'#                todisk = TRUE, folder = './pontos',
-#'#                filename = 'pontos.shp')
-
-df_to_point <- function(df, x = 'X', y = 'Y', crs, todisk = FALSE,
-                     folder = NULL, filename = NULL) {
+#' # df = data.frame(X = c(-42.3,-42.4,-42.5), Y = c(-20.1, -20.2, -20.3))
+#' # pt1 = df_to_point(df, x = 'X', y = 'Y', crs = 'EPSG:4326',
+#' #                todisk = TRUE, folder = './pontos',
+#' #                filename = 'pontos.shp')
+df_to_point <- function(df, x = "X", y = "Y", crs, todisk = FALSE,
+                        folder = NULL, filename = NULL) {
   if (todisk == TRUE & is.null(folder)) {
-    stop('if todisk = TRUE a folder name must be defined')
+    stop("if todisk = TRUE a folder name must be defined")
   }
-  pt = sf::st_as_sf(df, coords = c(x, y), crs = crs)
+  pt <- sf::st_as_sf(df, coords = c(x, y), crs = crs)
   if (todisk == TRUE) {
-    fn = here::here(folder, filename)
+    fn <- here::here(folder, filename)
     sf::write_sf(pt, fn, append = FALSE)
   }
   return(pt)
