@@ -7,7 +7,7 @@
 #' @param todisk boolean save the sf object do disk
 #' @param folder character folder where file will be saved (must exist)
 #' @param filename character file name + extension
-#' @return sf object
+#' @return sf object of point type
 #' @export
 #' @importFrom sf st_as_sf write_sf
 #' @examples
