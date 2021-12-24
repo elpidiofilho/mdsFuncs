@@ -6,13 +6,13 @@
 #' @export
 #' @importFrom terra crop mask
 #' @examples
-#' #cut_raster <- function(r, poly)
+#' # cut_raster <- function(r, poly)
 cut_raster <- function(r, poly) {
-  if (class(r) %in% c('RasterStack', 'RasterLayer')) {
-    r = rast(r)
+  if (class(r) %in% c("RasterStack", "RasterLayer")) {
+    r <- rast(r)
   } else {
-    if (class(r) != 'SpatRaster') {
-      stop('Error : file must be in RasterStack, RasterLayer or SpatRaster format')
+    if (class(r) != "SpatRaster") {
+      stop("Error : file must be in RasterStack, RasterLayer or SpatRaster format")
     }
   }
 
