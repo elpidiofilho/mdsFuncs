@@ -1,7 +1,7 @@
 #' cut raster
 #' @description cut raster by polygon
 #' @param r  raster
-#' @param poly mask polygon
+#' @param poly mask polygon of sf class
 #' @return raster cutted and masked
 #' @export
 #' @importFrom terra crop mask
