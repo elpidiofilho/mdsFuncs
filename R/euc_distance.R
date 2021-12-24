@@ -23,7 +23,7 @@ euc_dist <- function(r, vct, todisk = FALSE, path = NULL,
     }
   }
 
-   if (todisk == TRUE & is.null(filename)) {
+  if (todisk == TRUE & is.null(filename)) {
     stop("if todisk = TRUE a filename name must be defined")
   }
 
@@ -51,8 +51,8 @@ euc_dist <- function(r, vct, todisk = FALSE, path = NULL,
   eucdistcut <- mdsFuncs::cut_raster(euc_dist, cont)
   if (todisk == TRUE) {
     fn <- here::here(path, paste0(filename, ext))
-    if(dir.exists(file.path(here(path)) )== FALSE) {
-      stop('ERROR: path not exists')
+    if (dir.exists(file.path(here(path))) == FALSE) {
+      stop("ERROR: path not exists")
     }
     terra::writeRaster(x = eucdistcut, filename = fn, overwrite = TRUE)
   }

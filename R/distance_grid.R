@@ -10,7 +10,6 @@
 #' @examples
 #' # distance_grid <- function(px = df$x, py = df$y, nx = 3, ny = 3)
 distance_grid <- function(px, py, nx, ny) {
-
   maxy <- max(py)
   maxx <- max(px)
   miny <- min(py)
