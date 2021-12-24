@@ -130,3 +130,10 @@ classify_kmeans <- function(r, num_cluster = 5, decimal_places = 2){
   print(mx)
   return(rc1)
 }
+
+Classify_by_vector <- function(r, old, new) {
+  df = data.frame(old, new)
+  mx = matrix(df, ncol = 2)
+
+
+}

@@ -9,7 +9,7 @@
 #' @export
 #' @examples
 #' #cor_high = correl_feat_elimin(mcor, testcor = c(0.80, 0.90, 0.95, 0.975))
-correl_feat_elimin <- function(mcor, testcor = c(0.90, 0.925, 0.95, 0.975),
+correl_feat_elimin <- function(mcor, testcor = c(0.80, 0.85, 0.90, 0.925, 0.95, 0.975),
                                 graph = TRUE) {
   var_ <- correl <- NULL
   df = data.frame()
