@@ -18,5 +18,5 @@ raster cutted and masked
 cut raster by polygon
 }
 \examples{
-#cut_raster <- function(r, poly)
+# cut_raster <- function(r, poly)
 }

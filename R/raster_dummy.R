@@ -8,7 +8,7 @@
 #' @export
 #' @importFrom terra rast ext res unique `add<-`
 #' @examples
-#' #dumr = raster_dummy(r)
+#' # dumr = raster_dummy(r)
 raster_dummy <- function(r) {
   if (class(r) != "SpatRaster") {
     r <- rast(r)
@@ -26,11 +26,10 @@ raster_dummy <- function(r) {
     b[] <- ifelse(b[] == u[j], 1, 0)
     rbin <- terra::`add<-`(rbin, b)
     rnames <- append(rnames, paste(names(r),
-                                   paste("level", u[j], sep = "."), sep = "_"))
+      paste("level", u[j], sep = "."),
+      sep = "_"
+    ))
   }
   names(rbin) <- rnames
   return(rbin)
 }
-
-
-

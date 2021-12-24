@@ -8,8 +8,8 @@
 #' @return dataframe with point distances to grid
 #' @export
 #' @examples
-#'#distance_grid <- function(px = df$x, py = df$y, nx = 3, ny = 3)
-  distance_grid <- function(px, py, nx, ny) {
+#' # distance_grid <- function(px = df$x, py = df$y, nx = 3, ny = 3)
+distance_grid <- function(px, py, nx, ny) {
   maxy <- max(py)
   maxx <- max(px)
   miny <- min(py)
@@ -22,7 +22,7 @@
   df1 <- matrix(nrow = l, ncol = c)
   cont <- 1
   for (i in 1:c) {
-    df1[, cont] <- sqrt((gr$y[i] - py) ^ 2 + (gr$x[i] - px) ^ 2)
+    df1[, cont] <- sqrt((gr$y[i] - py)^2 + (gr$x[i] - px)^2)
     names(df1)[i] <- paste("dist_", i, sep = "")
     cont <- cont + 1
   }

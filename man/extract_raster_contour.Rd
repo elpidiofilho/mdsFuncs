@@ -16,6 +16,5 @@ a polygon with contour of raster
 Extract vector of raster contour and create a polygon
 }
 \examples{
-#extract_raster_contour(r)
-
+# extract_raster_contour(r)
 }

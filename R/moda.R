@@ -9,13 +9,12 @@
 #' @importFrom terra app
 #' @examples
 #' # modalfreq = mode_freq(r = r1, ncores = 2)
-
 mode_freq <- function(r, ncores = 2) {
-  if (class(r) == 'RasterStack') {
-    r = rast(r)
+  if (class(r) == "RasterStack") {
+    r <- rast(r)
   } else {
-    if (class(r) != 'SpatRaster') {
-      stop('Error : file must be in RasterStack or SpatRaster format')
+    if (class(r) != "SpatRaster") {
+      stop("Error : file must be in RasterStack or SpatRaster format")
     }
   }
   Mode_count <- function(x) {
@@ -28,4 +27,3 @@ mode_freq <- function(r, ncores = 2) {
   freq <- terra::app(r, fun = Mode_count, cores = ncores)
   return(freq)
 }
-

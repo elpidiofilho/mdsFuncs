@@ -21,5 +21,5 @@ Classify a integer or numeric raster using intervals calculated
    by kmeans cluster
 }
 \examples{
-#rk = classify_kmeans(r, 4, decimal_places = 0)
+# rk = classify_kmeans(r, 4, decimal_places = 0)
 }

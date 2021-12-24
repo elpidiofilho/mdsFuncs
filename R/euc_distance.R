@@ -13,32 +13,31 @@
 #'
 #' @examples
 #' # rdist = euc_dist(r, vec_pt, todisk = FALSE)
-
 euc_dist <- function(r, vct, todisk = FALSE, path = NULL,
-                     filename = NULL, ext = '.tif') {
-  if (class(r) %in% c('RasterLayer')) {
-    r = rast(r)
+                     filename = NULL, ext = ".tif") {
+  if (class(r) %in% c("RasterLayer")) {
+    r <- rast(r)
   } else {
-    if (class(r) != 'SpatRaster') {
-      stop('Error : file must be in RasterStack or SpatRaster format')
+    if (class(r) != "SpatRaster") {
+      stop("Error : file must be in RasterStack or SpatRaster format")
     }
   }
 
-  clv = class(vct)
-  clr = class(r)
-  if (clv[1] %in% c('sf', 'sp')) {
-    vct = terra::vect(vct)
+  clv <- class(vct)
+  clr <- class(r)
+  if (clv[1] %in% c("sf", "sp")) {
+    vct <- terra::vect(vct)
   } else {
-    if (clv[1] != ('SpatVector'))  {
-      stop('vct class must be one of sf, sp or SpatVector')
+    if (clv[1] != ("SpatVector")) {
+      stop("vct class must be one of sf, sp or SpatVector")
     }
   }
   if (clr[1] %in% c("RasterLayer", "RasterStack")) {
-    r = rast(r)
+    r <- rast(r)
   } else {
     if (clr[1] != "SpatRaster") {
-      stop('raster must be in one of formats : RasterLayer, RasterStack
-           or SpatRaster')
+      stop("raster must be in one of formats : RasterLayer, RasterStack
+           or SpatRaster")
     }
   }
 
@@ -46,9 +45,8 @@ euc_dist <- function(r, vct, todisk = FALSE, path = NULL,
   cont <- mdsFuncs::extract_raster_contour(r)
   eucdistcut <- mdsFuncs::cut_raster(euc_dist, cont)
   if (todisk == TRUE) {
-    fn = here::here(path, paste0(filename, ext))
+    fn <- here::here(path, paste0(filename, ext))
     terra::writeRaster(x = eucdistcut, filename = fn, overwrite = TRUE)
   }
   return(eucdistcut)
 }
-

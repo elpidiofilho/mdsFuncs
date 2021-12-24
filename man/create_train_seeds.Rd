@@ -22,6 +22,8 @@ list of seeds
 Create caret seeds for training
 }
 \examples{
-seed_train = create_train_seeds(tuneLength = 5, model = 'rf',
-                                repeats = 3, number = 10)
+seed_train <- create_train_seeds(
+  tuneLength = 5, model = "rf",
+  repeats = 3, number = 10
+)
 }

@@ -19,5 +19,5 @@ Convert raster file containing n classes
     Output a multiple raster (SpatRaster) from the terra packet
 }
 \examples{
-#dumr = raster_dummy(r)
+# dumr = raster_dummy(r)
 }

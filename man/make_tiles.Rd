@@ -33,7 +33,7 @@ SpatRaster
 divide a raster in a number of same size tiles
 }
 \examples{
-#tl = make_tiles(r = r1, ncol = 2, nrow = 2,
+# tl = make_tiles(r = r1, ncol = 2, nrow = 2,
 #      path = './tiles', sufix = 'tl', format = '.tif')
 }
 \author{

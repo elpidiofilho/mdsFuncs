@@ -9,7 +9,6 @@
 #' @importFrom dplyr rename
 #' @examples
 #' # unique_value_raster(r)
-
 unique_value_raster <- function(r) {
   n <- terra::nlyr(r)
   vu <- as.numeric(n)
@@ -21,7 +20,7 @@ unique_value_raster <- function(r) {
     names(vu)[i] <- names(r)[i]
   }
   dfu <- data.frame(vu) |>
-    tibble::rownames_to_column('raster') |>
+    tibble::rownames_to_column("raster") |>
     dplyr::rename(unique = vu) |>
     dplyr::arrange(unique)
   return(dfu)

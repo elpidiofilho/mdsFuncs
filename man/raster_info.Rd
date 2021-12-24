@@ -18,5 +18,4 @@ Create dataframe with characteriscts of a list of raster
 }
 \examples{
 # raster_info(l)
-
 }

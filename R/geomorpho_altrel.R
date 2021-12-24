@@ -14,30 +14,31 @@
 #' # saga <- saga_gis()
 #' # frel <- geomorpho_altrel (saga, mde = dem, folder = './morpho',
 #' #                          todisk = TRUE)
-geomorpho_altrel  <- function(saga, mde, todisk = FALSE, folder = NULL) {
-
+geomorpho_altrel <- function(saga, mde, todisk = FALSE, folder = NULL) {
   if (todisk == TRUE & is.null(folder)) {
-    stop('if todisk = TRUE a folder name must be defined')
+    stop("if todisk = TRUE a folder name must be defined")
   }
-  clr = class(mde)
+  clr <- class(mde)
   if (clr[1] == "RasterLayer") {
-    r = rast(r)
+    r <- rast(r)
   } else {
     if (clr[1] != "SpatRaster") {
-      stop('mde must be in one of formats  RasterLayer,
-           or SpatRaster')
+      stop("mde must be in one of formats  RasterLayer,
+           or SpatRaster")
     }
   }
 
-  relheights = saga$ta_morphometry$relative_heights_and_slope_positions(dem = mde)
-  nm = c('Slope_Height', "Valley_Depth", 'Normalized_Height',
-         'Standardized_Height', 'Mid_Slope_Positon'  )
-  names(relheights) = nm
+  relheights <- saga$ta_morphometry$relative_heights_and_slope_positions(dem = mde)
+  nm <- c(
+    "Slope_Height", "Valley_Depth", "Normalized_Height",
+    "Standardized_Height", "Mid_Slope_Positon"
+  )
+  names(relheights) <- nm
   if (todisk == TRUE) {
     list_to_fileraster(terrain = relheights, path = folder)
   }
   for (i in 1:length(nm)) {
-    names(relheights[[i]]) = nm[i]
+    names(relheights[[i]]) <- nm[i]
   }
   return(relheights)
 }
@@ -53,43 +54,42 @@ geomorpho_altrel  <- function(saga, mde, todisk = FALSE, folder = NULL) {
 #' @importFrom sf write_sf
 #' @examples
 #' # rl = list_to_fileraster(alrel, "morpho")
-
 list_to_fileraster <- function(terrain, path) {
-  if (class(terrain) == 'list') {
-    nl = length(terrain)
+  if (class(terrain) == "list") {
+    nl <- length(terrain)
   } else {
-    if (class(terrain) == 'RasterLayer') {
-      nm = names(terrain)
-      terrain = terra::rast(terrain)
-      names(terrain) = nm
+    if (class(terrain) == "RasterLayer") {
+      nm <- names(terrain)
+      terrain <- terra::rast(terrain)
+      names(terrain) <- nm
       terra::setMinMax(terrain)
 
-      nl = 1
+      nl <- 1
     } else {
-      if (class(terrain) == 'SpatRaster') {
-        nl = terra::nlyr(terrain)
+      if (class(terrain) == "SpatRaster") {
+        nl <- terra::nlyr(terrain)
       }
     }
   }
 
   for (i in 1:nl) {
-    rt = terrain[[i]]
-    cl = class(rt)
-    if (cl[1] == "RasterLayer" | cl[1] == 'SpatRaster' ) {
-      if (cl[1] == "RasterLayer" ) {rt = rast(rt)}
-      names(rt) = paste0(names(terrain)[i])
-      fn = paste0(names(terrain)[i],  '.tif')
-      fp = here::here(path, fn)
+    rt <- terrain[[i]]
+    cl <- class(rt)
+    if (cl[1] == "RasterLayer" | cl[1] == "SpatRaster") {
+      if (cl[1] == "RasterLayer") {
+        rt <- rast(rt)
+      }
+      names(rt) <- paste0(names(terrain)[i])
+      fn <- paste0(names(terrain)[i], ".tif")
+      fp <- here::here(path, fn)
       print(fp)
       terra::setMinMax(rt)
-      terra::writeRaster(rt, filename = fp , overwrite = TRUE )
+      terra::writeRaster(rt, filename = fp, overwrite = TRUE)
     } else {
-      fn = paste0(names(terrain)[i], '.shp')
-      fp = here::here(path,fn)
+      fn <- paste0(names(terrain)[i], ".shp")
+      fp <- here::here(path, fn)
       print(fp)
       sf::write_sf(rt, fp, append = FALSE)
     }
-
   }
 }
-

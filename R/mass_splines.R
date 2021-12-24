@@ -1,18 +1,20 @@
 #' @importFrom sp  coordinates
 #'
 # Converts a SoilProfileCollection to a data frame:
-.as.data.frame.SoilProfileCollection <- function(x, row.names = NULL, optional = FALSE, ...){
+.as.data.frame.SoilProfileCollection <- function(x, row.names = NULL, optional = FALSE, ...) {
 
   ## derive layer sequence:
-  s1 <- unlist(by(x@horizons[ ,x@depthcols[1]], x@horizons[ ,paste(x@idcol)], order))
-  s2 <- unlist(by(x@horizons[ ,x@depthcols[2]], x@horizons[ ,paste(x@idcol)], order))
-  HONU <- ifelse(s1 == s2 & !x@horizons[ ,x@depthcols[1]] == x@horizons[ ,x@depthcols[2]], s1, NA)
+  s1 <- unlist(by(x@horizons[, x@depthcols[1]], x@horizons[, paste(x@idcol)], order))
+  s2 <- unlist(by(x@horizons[, x@depthcols[2]], x@horizons[, paste(x@idcol)], order))
+  HONU <- ifelse(s1 == s2 & !x@horizons[, x@depthcols[1]] == x@horizons[, x@depthcols[2]], s1, NA)
 
   ## Put all horizon in the same row:
-  HOR.list <- as.list(rep(NA, summary(HONU)[[6]]))  ## highest number of layers
+  HOR.list <- as.list(rep(NA, summary(HONU)[[6]])) ## highest number of layers
   for (j in 1:length(HOR.list)) {
     HOR.list[[j]] <- subset(x@horizons, HONU == j)
-    sel <- !{names(HOR.list[[j]]) %in% paste(x@idcol)}
+    sel <- !{
+      names(HOR.list[[j]]) %in% paste(x@idcol)
+    }
     ## rename variables using a sufix e.g. "_A", "_B" etc:
     names(HOR.list[[j]])[sel] <- paste(names(HOR.list[[j]])[sel], "_", LETTERS[j], sep = "")
   }
@@ -20,7 +22,7 @@
   ## Merge all tables (per horizon):
   HOR.list.m <- as.list(rep(NA, length(HOR.list)))
   for (j in 1:length(HOR.list)) {
-    sid <- data.frame(x@site[ ,paste(x@idcol)])
+    sid <- data.frame(x@site[, paste(x@idcol)])
     names(sid) <- paste(x@idcol)
     HOR.list.m[[j]] <- merge(sid, HOR.list[[j]], all.x = TRUE, by = paste(x@idcol))
   }
@@ -36,7 +38,6 @@
   }
 
   return(fdb)
-
 }
 
 
@@ -58,13 +59,11 @@
 #' @export
 #'
 #' @examples
-#'# mpsplinet(rdSoil,
-#'#          var.name = "C", lam = 0.1,
-#'#          d = t(c(0, 10)), vlow = 0,
-#'#          vhigh = 1000, show.progress = TRUE
-#'# )
-
-
+#' # mpsplinet(rdSoil,
+#' #          var.name = "C", lam = 0.1,
+#' #          d = t(c(0, 10)), vlow = 0,
+#' #          vhigh = 1000, show.progress = TRUE
+#' # )
 mpsplinet <- function(obj, var.name, lam = 0.1, d = t(c(0, 5, 15, 30, 60, 100, 200)), vlow = 0, vhigh = 1000, show.progress = TRUE) {
   depthcols <- obj@depthcols
   idcol <- obj@idcol

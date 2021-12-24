@@ -9,7 +9,7 @@
 #' # rd = stack_dummy(l = l, threshold = 8)
 stack_dummy <- function(l, threshold = 10) {
   nl <- length(l)
-  if (nl > 0 ) {
+  if (nl > 0) {
     for (i in 1:nl) {
       r <- rast(l[i])
       un <- nrow(terra::unique(r))

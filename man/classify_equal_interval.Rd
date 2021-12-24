@@ -21,6 +21,5 @@ Classify a integer or numeric raster using equal intervals
    defined by (max - min) / num_intervals
 }
 \examples{
-#classify_equal_interval(r = dem, num_interval = 5, decimal_places = 2)
-
+# classify_equal_interval(r = dem, num_interval = 5, decimal_places = 2)
 }
