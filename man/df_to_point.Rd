@@ -30,7 +30,7 @@ df_to_point(
 \item{filename}{character file name + extension}
 }
 \value{
-sf object
+sf object of point type
 }
 \description{
 convert a dataframe with coordinates to a point feature

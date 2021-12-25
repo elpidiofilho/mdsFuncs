@@ -16,26 +16,26 @@ make_tiles(
 \arguments{
 \item{r}{SpatRaster}
 
-\item{ncol}{número de divisões verticais}
+\item{ncol}{number of vertical divisions}
 
-\item{nrow}{número de divisões horizontais}
+\item{nrow}{number of horizontal divisions}
 
-\item{path}{pasta onde será salvo os tiles (com / no final)}
+\item{path}{folder to save tiles (com / no final)}
 
-\item{sufix}{sufixo a ser adicionada ao nome dos arquivos}
+\item{sufix}{sufix to be add to filename}
 
-\item{format}{formato do arquivo a ser gravado (com ponto no inicio)}
+\item{format}{format of file to be saved}
 }
 \value{
 SpatRaster
 }
 \description{
-divide a raster in a number of same size tiles
+spliy a raster in a number of same size tiles
 }
 \examples{
 # tl = make_tiles(r = r1, ncol = 2, nrow = 2,
 #      path = './tiles', sufix = 'tl', format = '.tif')
 }
 \author{
-Cassio Moquedace e Elpidio Filho
+Cassio Moquedace and Elpidio Filho
 }

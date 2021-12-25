@@ -9,7 +9,7 @@ cut_raster(r, poly)
 \arguments{
 \item{r}{raster}
 
-\item{poly}{mask polygon}
+\item{poly}{mask polygon of sf class}
 }
 \value{
 raster cutted and masked

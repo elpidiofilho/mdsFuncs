@@ -17,8 +17,8 @@ extract_raster_contour <- function(r) {
   }
 
   r_rec <- terra::classify(r, matrix(c(-Inf, +Inf, 1),
-                                     ncol = 3, byrow = TRUE)
-  )
+    ncol = 3, byrow = TRUE
+  ))
   vect_count <- terra::as.polygons(r_rec)
   return(vect_count)
 }

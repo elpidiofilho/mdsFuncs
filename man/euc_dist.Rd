@@ -2,7 +2,7 @@
 % Please edit documentation in R/euc_distance.R
 \name{euc_dist}
 \alias{euc_dist}
-\title{euc_distance - Euclidian distante to a vector}
+\title{euc_distance - Euclidean distance to a vector}
 \usage{
 euc_dist(r, vct, todisk = FALSE, path = NULL, filename = NULL, ext = ".tif")
 }
@@ -11,13 +11,13 @@ euc_dist(r, vct, todisk = FALSE, path = NULL, filename = NULL, ext = ".tif")
 
 \item{vct}{SpatVector point, line or polygon}
 
-\item{todisk}{boolean if true save to disk}
-
-\item{path}{character path to save}
+\item{todisk}{Boolean if true save to disk}
 
 \item{filename}{character raster filename}
 
-\item{ext}{character file extentension  (.tif, .asc, .img)}
+\item{ext}{character file extension  (.tif, .asc, .img)}
+
+\item{folder}{character path to save}
 }
 \value{
 SpatRaster

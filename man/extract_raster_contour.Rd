@@ -18,3 +18,6 @@ Extract vector of raster contour and create a polygon
 \examples{
 # extract_raster_contour(r)
 }
+\author{
+<Cassio Moquedace>
+}
