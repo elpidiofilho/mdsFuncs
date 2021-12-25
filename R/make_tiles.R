@@ -3,7 +3,7 @@
 #' @param r SpatRaster
 #' @param ncol number of vertical divisions
 #' @param nrow  number of horizontal divisions
-#' @param path  folder to save tiles (com / no final)
+#' @param path  folder to save tiles
 #' @param sufix sufix to be add to filename
 #' @param format format of file to be saved
 #' @author Cassio Moquedace and Elpidio Filho
@@ -13,7 +13,7 @@
 #' @importFrom here here
 #' @examples
 #' # tl = make_tiles(r = r1, ncol = 2, nrow = 2,
-#' #      path = './tiles', sufix = 'tl', format = '.tif')
+#' #      path = 'tiles', sufix = 'tl', format = '.tif')
 make_tiles <- function(r, ncol = 2, nrow = 2,
                        path = NULL,
                        sufix = "tile_",
