@@ -66,11 +66,8 @@ plot_raster <- function(r, num_color = 10, num_decimal = 1, style = "quantile") 
     ylab = NULL,
     scales = list(draw = FALSE),
     col.regions = grDevices::colorRampPalette(RColorBrewer::brewer.pal(
-      num_color,
-      "RdYlGn"
-    )),
-    at = break1$brks,
-    colorkey = ck
+      num_color, "RdYlGn" )),
+    at = break1$brks, colorkey = ck
   )
   print(p1)
 }
