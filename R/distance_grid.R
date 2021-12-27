@@ -10,10 +10,10 @@
 #' @examples
 #' # distance_grid <- function(px = df$x, py = df$y, nx = 3, ny = 3)
 distance_grid <- function(px, py, nx, ny) {
- if(length(px) != length(py)) {
-   stop('vectors px and py must be of same size')
- }
-   maxy <- max(py)
+  if (length(px) != length(py)) {
+    stop("vectors px and py must be of same size")
+  }
+  maxy <- max(py)
   maxx <- max(px)
   miny <- min(py)
   minx <- min(px)
