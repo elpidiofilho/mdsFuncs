@@ -9,4 +9,6 @@
 * added classify_kmeans use kmeans cluster to classify raster by equal intervals
 # mdsFuncs 0.2.4
 * plot raster function
+# mdsFuncs 0.2.4
+* small error checks and code format
 
