@@ -1,4 +1,3 @@
-
 #' Determine raster unique values
 #'
 #' @param r SpatRaster unique layer or  raster stack to be processed
@@ -6,7 +5,7 @@
 #' @export
 #' @importFrom terra unique nlyr
 #' @importFrom tibble rownames_to_column
-#' @importFrom dplyr rename
+#' @importFrom dplyr rename arrange
 #' @examples
 #' # unique_value_raster(r)
 unique_value_raster <- function(r) {
@@ -18,7 +17,7 @@ unique_value_raster <- function(r) {
     }
   }
 
-    n <- terra::nlyr(r)
+  n <- terra::nlyr(r)
   vu <- as.numeric(n)
   for (i in 1:n) {
     u <- terra::unique(r[[i]], incomparables = TRUE)
