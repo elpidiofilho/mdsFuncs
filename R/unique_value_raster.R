@@ -1,7 +1,7 @@
 
-#' Determine raster unique valuese
+#' Determine raster unique values
 #'
-#' @param r SpatRaster unique ou raster stack to be preocessed
+#' @param r SpatRaster unique layer or  raster stack to be processed
 #' @return named character vector with layer names and unique values
 #' @export
 #' @importFrom terra unique nlyr
