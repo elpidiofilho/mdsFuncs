@@ -2,7 +2,7 @@
 #' @description Convert raster file containing n classes
 #'     in n files containing one class
 #'     type presence (1) and absence (0)
-#'     Output a multiple raster (SpatRaster) from the terra packet
+#'     Output a multiple raster (SpatRaster) from the terra package
 #' @param r raster with categorical data
 #' @return SpatRaster with n layers one for each factor level
 #' @export
@@ -10,8 +10,12 @@
 #' @examples
 #' # dumr = raster_dummy(r)
 raster_dummy <- function(r) {
-  if (class(r) != "SpatRaster") {
+  if (class(r) %in% c("RasterStack", "RasterLayer")) {
     r <- rast(r)
+  } else {
+    if (class(r) != "SpatRaster") {
+      stop("Error : file must be in RasterStack or SpatRaster format")
+    }
   }
   rbin <- terra::rast()
   terra::ext(rbin) <- terra::ext(r)
