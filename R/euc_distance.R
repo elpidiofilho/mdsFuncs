@@ -52,7 +52,7 @@ euc_dist <- function(r, vct, todisk = FALSE, path = NULL,
   if (todisk == TRUE) {
     fn <- here::here(path, paste0(filename, ext))
     if (dir.exists(file.path(here(path))) == FALSE) {
-      stop("ERROR: path not exists")
+      stop("ERROR: path does not exists")
     }
     terra::writeRaster(x = eucdistcut, filename = fn, overwrite = TRUE)
   }
