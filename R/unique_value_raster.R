@@ -10,7 +10,15 @@
 #' @examples
 #' # unique_value_raster(r)
 unique_value_raster <- function(r) {
-  n <- terra::nlyr(r)
+  if (class(r) %in% c("RasterStack", "RasterLayer")) {
+    r <- rast(r)
+  } else {
+    if (class(r) != "SpatRaster") {
+      stop("Error : file must be in RasterStack or SpatRaster format")
+    }
+  }
+
+    n <- terra::nlyr(r)
   vu <- as.numeric(n)
   for (i in 1:n) {
     u <- terra::unique(r[[i]], incomparables = TRUE)
