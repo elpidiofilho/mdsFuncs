@@ -15,7 +15,7 @@ cut_raster <- function(r, poly) {
       stop("Error : file must be in RasterStack, RasterLayer or SpatRaster format")
     }
   }
-  if (st_is(sfc, "POLYGON") == FALSE) {
+  if (st_is(poly, "POLYGON") == FALSE) {
     stop("Error : poly must be a sf polygon object")
   }
   r1 <- r |>
