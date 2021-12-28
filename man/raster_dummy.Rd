@@ -16,7 +16,7 @@ SpatRaster with n layers one for each factor level
 Convert raster file containing n classes
     in n files containing one class
     type presence (1) and absence (0)
-    Output a multiple raster (SpatRaster) from the terra packet
+    Output a multiple raster (SpatRaster) from the terra package
 }
 \examples{
 # dumr = raster_dummy(r)

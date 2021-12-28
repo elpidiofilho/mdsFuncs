@@ -2,18 +2,18 @@
 % Please edit documentation in R/unique_value_raster.R
 \name{unique_value_raster}
 \alias{unique_value_raster}
-\title{Determine raster unique valuese}
+\title{Determine raster unique values}
 \usage{
 unique_value_raster(r)
 }
 \arguments{
-\item{r}{SpatRaster unique ou raster stack to be preocessed}
+\item{r}{SpatRaster unique layer or  raster stack to be processed}
 }
 \value{
 named character vector with layer names and unique values
 }
 \description{
-Determine raster unique valuese
+Determine raster unique values
 }
 \examples{
 # unique_value_raster(r)

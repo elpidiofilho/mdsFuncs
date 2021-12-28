@@ -20,7 +20,7 @@ make_tiles(
 
 \item{nrow}{number of horizontal divisions}
 
-\item{path}{folder to save tiles (com / no final)}
+\item{path}{folder to save tiles}
 
 \item{sufix}{sufix to be add to filename}
 
@@ -34,7 +34,7 @@ spliy a raster in a number of same size tiles
 }
 \examples{
 # tl = make_tiles(r = r1, ncol = 2, nrow = 2,
-#      path = './tiles', sufix = 'tl', format = '.tif')
+#      path = 'tiles', sufix = 'tl', format = '.tif')
 }
 \author{
 Cassio Moquedace and Elpidio Filho
