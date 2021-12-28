@@ -9,6 +9,7 @@
 * added classify_kmeans use kmeans cluster to classify raster by equal intervals
 # mdsFuncs 0.2.4
 * plot raster function
-# mdsFuncs 0.2.4
+# mdsFuncs 0.2.5
 * small error checks and code format
+* funtion bbox to polygon
 
