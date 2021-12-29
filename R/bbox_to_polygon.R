@@ -18,6 +18,7 @@ bbox_to_polygon <- function(vector) {
 
 
 raster_template <- function(vector, resolution, crs) {
+
   rt = rast(ext(vector), resolution = resolution,
                          crs = crs)
 
