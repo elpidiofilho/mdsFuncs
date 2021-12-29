@@ -15,3 +15,11 @@ bbox_to_polygon <- function(vector) {
   return(poly2)
 
 }
+
+
+raster_template <- function(vector, resolution, crs) {
+  rt = rast(ext(vector), resolution = resolution,
+                         crs = crs)
+
+}
+
