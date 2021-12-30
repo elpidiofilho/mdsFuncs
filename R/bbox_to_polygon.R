@@ -18,9 +18,12 @@ bbox_to_polygon <- function(vector) {
 
 
 raster_template <- function(vector, resolution, crs) {
+  if (class(vector)[1] == 'sf') {
+    vector = terra::vect(vector)
+  }
 
   rt = rast(ext(vector), resolution = resolution,
-                         crs = crs)
+            crs = crs)
 
 }
 
