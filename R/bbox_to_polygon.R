@@ -22,8 +22,7 @@ raster_template <- function(vector, resolution, crs) {
     vector = terra::vect(vector)
   }
 
-  rt = rast(ext(vector), resolution = resolution,
-            crs = crs)
+  rt = rast(ext(vector), resolution = resolution, crs = crs)
 
 }
 
