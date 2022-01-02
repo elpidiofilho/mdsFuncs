@@ -4,7 +4,7 @@
 \alias{euc_dist}
 \title{euc_distance - Euclidean distance to a vector}
 \usage{
-euc_dist(r, vct, todisk = FALSE, path = NULL, filename = NULL, ext = ".tif")
+euc_dist(r, vct, todisk = FALSE, folder = NULL, filename = NULL, ext = ".tif")
 }
 \arguments{
 \item{r}{SpatRaster raster}
@@ -13,11 +13,11 @@ euc_dist(r, vct, todisk = FALSE, path = NULL, filename = NULL, ext = ".tif")
 
 \item{todisk}{Boolean if true save to disk}
 
+\item{folder}{character path to save}
+
 \item{filename}{character raster filename}
 
 \item{ext}{character file extension  (.tif, .asc, .img)}
-
-\item{folder}{character path to save}
 }
 \value{
 SpatRaster
