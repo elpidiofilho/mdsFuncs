@@ -3,7 +3,7 @@
 #' @param r SpatRaster raster
 #' @param vct SpatVector point, line or polygon
 #' @param todisk Boolean if true save to disk
-#' @param folder character path to save
+#' @param folder character folder to save raster file
 #' @param filename character raster filename
 #' @param ext character file extension  (.tif, .asc, .img)
 #' @importFrom terra distance writeRaster
@@ -50,7 +50,7 @@ euc_dist <- function(r, vct, todisk = FALSE, folder = NULL,
   cont <- mdsFuncs::extract_raster_contour(r)
   eucdistcut <- mdsFuncs::cut_raster(euc_dist, cont)
   if (todisk == TRUE) {
-    fn <- here::here(path, paste0(filename, ext))
+    fn <- here::here(folder, paste0(filename, ext))
     if (dir.exists(file.path(here(path))) == FALSE) {
       stop("ERROR: path does not exists")
     }

@@ -13,7 +13,7 @@ euc_dist(r, vct, todisk = FALSE, folder = NULL, filename = NULL, ext = ".tif")
 
 \item{todisk}{Boolean if true save to disk}
 
-\item{folder}{character path to save}
+\item{folder}{character folder to save raster file}
 
 \item{filename}{character raster filename}
 

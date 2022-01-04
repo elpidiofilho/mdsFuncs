@@ -34,7 +34,7 @@ make_tiles <- function(r, ncol = 2, nrow = 2,
     nrows = vtiles, crs = crs(r), extent = ext(r)
   )
   plot(x)
-  filename <- here:here(path, paste0(sufix, format))
+  filename <- here::here(path, paste0(sufix, format))
   ff <- makeTiles(r, x, filename,
     overwrite = TRUE,
     gdal = c("COMPRESS=LZW")
