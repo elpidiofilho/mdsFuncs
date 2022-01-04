@@ -1,5 +1,5 @@
 #' make tiles from a raster
-#' @description spliy a raster in a number of same size tiles
+#' @description split a raster in a number of same size tiles
 #' @param r SpatRaster
 #' @param ncol number of vertical divisions
 #' @param nrow  number of horizontal divisions
@@ -9,7 +9,7 @@
 #' @author Cassio Moquedace and Elpidio Filho
 #' @return SpatRaster
 #' @export
-#' @importFrom terra rast makeTiles
+#' @importFrom terra rast makeTiles nlyr crs ext
 #' @importFrom here here
 #' @examples
 #' # tl = make_tiles(r = r1, ncol = 2, nrow = 2,
@@ -30,12 +30,11 @@ make_tiles <- function(r, ncol = 2, nrow = 2,
   htiles <- ncol
   ntiles <- vtiles * htiles
   x <- rast(
-    vals = c(1:ntiles), ncols = htiles, nlyr = nlyr(r),
-    nrows = vtiles, crs = crs(r), extent = ext(r)
+    vals = c(1:ntiles), ncols = htiles, nlyr = terra::nlyr(r),
+    nrows = vtiles, crs = terra::crs(r), extent = terra::ext(r)
   )
-  plot(x)
   filename <- here::here(path, paste0(sufix, format))
-  ff <- makeTiles(r, x, filename,
+  ff <- terra::makeTiles(r, x, filename,
     overwrite = TRUE,
     gdal = c("COMPRESS=LZW")
   )
