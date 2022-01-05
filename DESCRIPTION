@@ -2,7 +2,7 @@ Package: mdsFuncs
 Type: Package
 Title: Auxiliar functions to pre-process raster data and modelling with 
     machine learning models using caret package 
-Version: 0.2.5
+Version: 0.2.6
 Date: 2021-12-26
 Authors@R: 
     c(person(given = "Elpidio",
