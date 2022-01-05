@@ -17,7 +17,8 @@
 make_tiles <- function(r, ncol = 2, nrow = 2,
                        path = NULL,
                        sufix = "tile_",
-                       format = ".tif") {
+                       format = ".tif",
+                       datatype = NULL) {
   if (class(r) %in% c("RasterStack", "RasterLayer")) {
     r <- rast(r)
   } else {
@@ -36,7 +37,8 @@ make_tiles <- function(r, ncol = 2, nrow = 2,
   filename <- here::here(path, paste0(sufix, format))
   ff <- terra::makeTiles(r, x, filename,
     overwrite = TRUE,
-    gdal = c("COMPRESS=LZW")
+    gdal = c("COMPRESS=DEFLATE", "PREDICTOR=2",  "TFW=YES"),
+    datatype = "INT1U"
   )
   return(ff)
 }

@@ -10,7 +10,8 @@ make_tiles(
   nrow = 2,
   path = NULL,
   sufix = "tile_",
-  format = ".tif"
+  format = ".tif",
+  datatype = NULL
 )
 }
 \arguments{
@@ -30,7 +31,7 @@ make_tiles(
 SpatRaster
 }
 \description{
-spliy a raster in a number of same size tiles
+split a raster in a number of same size tiles
 }
 \examples{
 # tl = make_tiles(r = r1, ncol = 2, nrow = 2,
