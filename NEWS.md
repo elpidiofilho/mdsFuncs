@@ -11,7 +11,7 @@
 * plot raster function
 # mdsFuncs 0.2.5
 * small error checks and code format
-* funtion bbox to polygon
+* function bbox to polygon
 # mdsFuncs 0.2.6
 * Get epsg SIRGAS
 * Get epsg WGS
