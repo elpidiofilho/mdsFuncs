@@ -15,12 +15,13 @@ cut_raster <- function(r, poly) {
       stop("Error : file must be in RasterStack, RasterLayer or SpatRaster format")
     }
   }
-  if (sf::st_is(poly, "POLYGON") == FALSE) {
-    stop("Error : poly must be a sf polygon object")
-  }
   if (class(poly) == "sf" ) {
     poly = terra::vect(poly)
   }
+  if (is.polygons(poly) == FALSE) {
+    stop("Error : poly must be a  polygon object")
+  }
+
   r1 <- r |>
     terra::crop(poly) |>
     terra::mask(poly)
