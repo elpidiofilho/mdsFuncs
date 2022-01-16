@@ -18,7 +18,7 @@ cut_raster <- function(r, poly) {
   if (class(poly) == "sf" ) {
     poly = terra::vect(poly)
   }
-  if (is.polygons(poly) == FALSE) {
+  if (terra::is.polygons(poly) == FALSE) {
     stop("Error : poly must be a  polygon object")
   }
 

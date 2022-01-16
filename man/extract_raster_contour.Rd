@@ -10,7 +10,7 @@ extract_raster_contour(r)
 \item{r}{raster in SpatRaster format}
 }
 \value{
-a polygon with contour of raster
+a polygon with contour of raster in sf format
 }
 \description{
 Extract vector of raster contour and create a polygon

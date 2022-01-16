@@ -15,3 +15,5 @@
 # mdsFuncs 0.2.6
 * Get epsg SIRGAS
 * Get epsg WGS
+# mdsFuncs 0.2.7
+* region_group function added
