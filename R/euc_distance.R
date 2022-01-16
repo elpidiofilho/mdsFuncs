@@ -15,6 +15,7 @@
 #' # rdist = euc_dist(r, vec_pt, todisk = FALSE)
 euc_dist <- function(r, vct, todisk = FALSE, folder = NULL,
                      filename = NULL, ext = ".tif") {
+  path = NULL
   if (class(r) %in% c("RasterLayer")) {
     r <- rast(r)
   } else {
