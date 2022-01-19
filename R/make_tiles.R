@@ -33,6 +33,10 @@ make_tiles <- function(r, ncol = 2, nrow = 2,
       stop("Error : file must be in RasterStack, RasterLayer or SpatRaster format")
     }
   }
+  if (is.na(terra::crs(r))) {
+    stop("r does not have a coordinate system")
+  }
+
   vtiles <- nrow
   htiles <- ncol
   ntiles <- vtiles * htiles

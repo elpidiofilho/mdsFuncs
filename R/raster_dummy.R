@@ -17,6 +17,10 @@ raster_dummy <- function(r) {
       stop("Error : file must be in RasterStack or SpatRaster format")
     }
   }
+  if (is.na(terra::crs(r))) {
+    stop("r does not have a coordinate system")
+  }
+
   rbin <- terra::rast()
   terra::ext(rbin) <- terra::ext(r)
   terra::res(rbin) <- terra::res(r)

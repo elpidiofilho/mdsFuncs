@@ -17,6 +17,9 @@ mode_freq <- function(r, ncores = 2) {
       stop("Error : file must be in RasterStack or SpatRaster format")
     }
   }
+  if (is.na(terra::crs(r))) {
+    stop("r does not have a coordinate system")
+  }
   Mode_count <- function(x) {
     ux <- unique(x)
     ux <- ux[!is.na(ux)]

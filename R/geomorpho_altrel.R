@@ -27,7 +27,9 @@ geomorpho_altrel <- function(saga, mde, todisk = FALSE, folder = NULL) {
            or SpatRaster")
     }
   }
-
+  if (is.na(terra::crs(r))) {
+    stop("r does not have a coordinate system")
+  }
   relheights <- saga$ta_morphometry$relative_heights_and_slope_positions(dem = mde)
   nm <- c(
     "Slope_Height", "Valley_Depth", "Normalized_Height",

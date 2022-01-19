@@ -17,3 +17,5 @@
 * Get epsg WGS
 # mdsFuncs 0.2.7
 * region_group function added
+# mdsFuncs 0.2.8
+* add allign_rasters and get_utm functions

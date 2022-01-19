@@ -15,7 +15,9 @@ extract_raster_contour <- function(r) {
       stop("Error : file must be in RasterStack or SpatRaster format")
     }
   }
-
+  if (is.na(terra::crs(r))) {
+    stop("r does not have a coordinate system")
+  }
   r_rec <- terra::classify(r[[1]],
                            matrix(c(-Inf, +Inf, 1), ncol = 3, byrow = TRUE))
   vect_count <- terra::as.polygons(r_rec)

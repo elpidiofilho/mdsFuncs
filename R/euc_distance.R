@@ -16,12 +16,9 @@
 euc_dist <- function(r, vct, todisk = FALSE, folder = NULL,
                      filename = NULL, ext = ".tif") {
   path = NULL
-  if (class(r) %in% c("RasterLayer")) {
-    r <- rast(r)
-  } else {
-    if (class(r) != "SpatRaster") {
-      stop("Error : file must be in RasterStack or SpatRaster format")
-    }
+
+  if (is.na(terra::crs(r))) {
+    stop("r does not have a coordinate system")
   }
 
   if (todisk == TRUE & is.null(filename)) {

@@ -16,9 +16,14 @@ region_group <- function(r) {
       stop('r must be a SpatRaster or a RasterStack')
     }
   }
+
+  if (is.na(terra::crs(r))) {
+    stop("r does not have a coordinate system")
+  }
+
   if (terra::nlyr(r) > 1) {warning( 'Multilayer file used. Only first layer will be
                                    processed')}
-  tic = proc.time()
+  tic = base::proc.time()
   vt = terra::as.polygons(r[[1]]) |>
     sf::st_as_sf() |>
     sf::st_cast("POLYGON", warn = FALSE) |>
@@ -28,7 +33,7 @@ region_group <- function(r) {
     rast(ft)
   names(ft) = 'region_group'
   rt = c(ft, r[[1]])
-  tac = proc.time()
+  tac = base::proc.time()
   t = (tac - tic)[['elapsed']]
   print(paste("time elapsed:", round(t, 3), 'seconds'))
   return(rt)
