@@ -5,15 +5,16 @@
 #' @param obj  input raster or vector (`SpatRaster` or `SpatVector`)
 #'
 #' @return EPSG code
-#'
+#' @importFrom terra is.lonlat ext project
 #' @export
 #'
 #' @examples
 #' #
 get_utm <- function(obj) {
+  dem0 <-  NULL
   if (!class(obj)[1] %in% c("SpatRaster", "SpatVector"))
     {stop("Argument must be a SpatRaster or SpatVector")}
-  if (is.lonlat(obj)) {
+  if (terra::is.lonlat(obj)) {
     ext0 = terra::ext(obj)
   } else {
     ext0 <- terra::ext(terra::project(dem0, "epsg:4326"))
