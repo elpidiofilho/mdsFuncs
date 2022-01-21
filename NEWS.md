@@ -19,3 +19,7 @@
 * region_group function added
 # mdsFuncs 0.2.8
 * add allign_rasters and get_utm functions
+# mdsFuncs 0.2.9
+* calc_ndvi_comb function added
+* glcm_texture function added
+

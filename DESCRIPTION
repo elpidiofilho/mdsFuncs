@@ -2,7 +2,7 @@ Package: mdsFuncs
 Type: Package
 Title: Auxiliar functions to pre-process raster data and modelling with 
     machine learning models using caret package 
-Version: 0.2.8
+Version: 0.2.9
 Date: 2021-12-26
 Authors@R: 
     c(person(given = "Elpidio",
@@ -25,7 +25,7 @@ Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.2
 Imports: terra, raster, caret, dplyr, here, sf, stringr, tibble, epiR, Rsagacmd, 
-   sp, classInt, rasterVis, RColorBrewer, fasterize
+   sp, classInt, rasterVis, RColorBrewer, fasterize, doParallel, glcm, foreach
 Suggests: 
     knitr,
     rmarkdown
