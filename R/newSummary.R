@@ -11,12 +11,15 @@
 #' @examples
 #' # caret::rfeFuncs$summary = newSummary
 newSummary <- function(data, lev = NULL, model = NULL) {
-  isNA <- is.na(data$pred)
-  isNA1 <- is.na(data$obs)
-  isNA2 <- intersect(isNA, isNA1)
-
-  pred <- data$pred[!isNA2]
-  obs <- data$obs[!isNA2]
+  isNA1 <- is.na(data$pred)
+  isNA2 <- is.na(data$obs)
+  isNA <- (isNA1 | isNA2)
+  sna <- sum(isNA)
+  if (sna > 0) {
+    warning(paste("there is", sna, "NA values in observations. They are removed"))
+  }
+  pred <- data$pred[!isNA]
+  obs <- data$obs[!isNA]
 
   mu <- mean(obs)
   mse <- mean((obs - pred)^2)
@@ -43,18 +46,18 @@ newSummary <- function(data, lev = NULL, model = NULL) {
   data_null <- predict(useless, obs1)
   rmse_null <- sqrt(mean((obs - data_null)^2))
   mae_null <- mean(abs(obs - data_null))
-  # rmse_null <- hydroGOF::rmse(obs, data_null, na.rm = TRUE)
-  # mae_null <- hydroGOF::mae(obs, data_null, na.rm = TRUE)
+  # rmse_null <- hydroGOF::rmse(obs, data_null, na.rm = TRUE) mae_null <-
+  # hydroGOF::mae(obs, data_null, na.rm = TRUE)
   RmseRelatNull <- 1 - (rmse / rmse_null)
   MaeRelatNull <- 1 - (mae / mae_null)
   out <- c(nse, rsq, mbe, rmse, rrse, mae, rae, LCCC, pbias, RmseRelatNull, MaeRelatNull)
   names(out) <- c(
-    "NSE", "Rsquared", "MBE", "RMSE", "RRSE", "MAE", "RAE",
-    "LCCC", "PBIAS", "RmseRelatNull", "MaeRelatNull"
+    "NSE", "Rsquared", "MBE", "RMSE", "RRSE", "MAE", "RAE", "LCCC", "PBIAS",
+    "RmseRelatNull", "MaeRelatNull"
   )
 
   if (any(is.nan(out))) {
     out[is.nan(out)] <- NA
   }
-  out
+  return(out)
 }
