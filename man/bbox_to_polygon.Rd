@@ -7,10 +7,10 @@
 bbox_to_polygon(vector)
 }
 \arguments{
-\item{vector}{in sf ou vect format}
+\item{vector}{in sf or terra vect format}
 }
 \value{
-sf polygin
+sf polygon
 }
 \description{
 extract a bounding box of a vector file and convert
