@@ -13,6 +13,12 @@ distance_grid <- function(px, py, nx, ny) {
   if (length(px) != length(py)) {
     stop("vectors px and py must be of same size")
   }
+  if (nx <= 0) {
+    stop('nx must be greater than zero')
+  }
+  if (ny <= 0) {
+    stop('ny must be greater than zero')
+  }
   maxy <- max(py)
   maxx <- max(px)
   miny <- min(py)

@@ -1,7 +1,7 @@
 #' Adjust Raster epsg
 #' @description Add epsg information for all rasters of a vector
 #'     containing path + raster filenames
-#' @param l character filename with path of rasters files
+#' @param l character vector of filenames with path of rasters files
 #' @param epsg character epsg in format: 'epsg:xxxxx'. Ex.'epsg:32723'
 #' @return SpatRaster
 #' @export

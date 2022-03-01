@@ -7,7 +7,7 @@
 epsg_adjust(l, epsg)
 }
 \arguments{
-\item{l}{character filename with path of rasters files}
+\item{l}{character vector of filenames with path of rasters files}
 
 \item{epsg}{character epsg in format: 'epsg:xxxxx'. Ex.'epsg:32723'}
 }
