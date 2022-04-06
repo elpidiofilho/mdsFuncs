@@ -22,4 +22,6 @@
 # mdsFuncs 0.2.9
 * calc_ndvi_comb function added
 * glcm_texture function added
-
+#mdsFuncs 0.2.10
+* newSumm_classification function added
+* newSummary_regression function added
